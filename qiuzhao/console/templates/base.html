@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}秋招控制台{% endblock %}</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand">秋招控制台</div>
+      <div class="brand-sub">Obsidian + Cursor 混合</div>
+      <div class="brand-sub" style="margin-bottom:0.75rem;">
+        <a href="/">← 新版 SPA</a> · 旧版
+      </div>
+      <nav class="nav">
+        <a href="/legacy" class="{% if page=='today' %}active{% endif %}">今日</a>
+        <a href="/legacy/progress" class="{% if page=='progress' %}active{% endif %}">投递</a>
+        <a href="/legacy/intel" class="{% if page=='intel' %}active{% endif %}">情报</a>
+        <a href="/legacy/inbox" class="{% if page=='inbox' %}active{% endif %}">
+          入队{% if pending_count %}<span class="badge">{{ pending_count }}</span>{% endif %}
+        </a>
+        <a href="/legacy/study" class="{% if page=='study' %}active{% endif %}">学习</a>
+        <a href="/legacy/conflicts" class="{% if page=='conflicts' %}active{% endif %}">冲突 / ICS</a>
+        <a href="/legacy/settings" class="{% if page=='settings' %}active{% endif %}">设置</a>
+      </nav>
+      {% if pending_count %}
+      <div style="margin-top:1.5rem;font-size:0.8rem;color:var(--muted);line-height:1.45;">
+        有 {{ pending_count }} 条 Agent 待处理。<br />
+        打开 Cursor 说：
+        <div class="cmd" style="margin-top:0.5rem;font-size:0.78rem;">处理控制台任务</div>
+      </div>
+      {% endif %}
+    </aside>
+    <main class="main">
+      {% if msg %}
+      <div class="flash">{{ msg }}</div>
+      {% endif %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</body>
+</html>

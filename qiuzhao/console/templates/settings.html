@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}设置 · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>设置与健康检查</h1>
+    <div class="hint">环境变量 <code>QIUZHAO_VAULT</code> 指向 Obsidian 库根目录</div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="n">{{ report.progress_count }}</div><div class="l">进度卡</div></div>
+  <div class="stat"><div class="n">{{ report.intel_count }}</div><div class="l">情报卡</div></div>
+  <div class="stat"><div class="n">{{ report.study_count }}</div><div class="l">学习任务</div></div>
+  <div class="stat"><div class="n">{{ report.pending_jobs }}</div><div class="l">待处理 Agent</div></div>
+</div>
+
+<div class="panel">
+  <h2>路径</h2>
+  <p>Vault：<code>{{ report.vault }}</code></p>
+  <p>环境覆盖：<code>{{ env_vault or '（未设置，使用默认）' }}</code></p>
+  <p>秋招目录：
+    {% if report.qiuzhao_ok %}<span class="pill good">可读</span>
+    {% else %}<span class="pill danger">不可用</span>{% endif %}
+  </p>
+  {% for m in report.messages %}
+  <p class="pill danger">{{ m }}</p>
+  {% endfor %}
+</div>
+
+<div class="panel">
+  <h2>日常三句口令（仅在需要 Agent 时）</h2>
+  <ol>
+    <li><div class="cmd">处理控制台任务</div></li>
+    <li>聊天直接贴 URL（快捷路径）</li>
+    <li><div class="cmd">每日情报更新</div>（与本台「请求日更」等价）</li>
+  </ol>
+  <p class="hint">启动：<code>qiuzhao\console\run.ps1</code> → <code>http://127.0.0.1:8765</code></p>
+</div>
+{% endblock %}

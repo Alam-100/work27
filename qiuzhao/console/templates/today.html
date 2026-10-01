@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}今日 · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>今日作战台</h1>
+    <div class="hint">改状态 / 排任务用本页；深挖情报点「入队」后一句口令交给 Cursor</div>
+  </div>
+  <div class="actions">
+    <a class="btn" href="/legacy/inbox">贴链接入队</a>
+    <a class="btn secondary" href="/legacy/study">安排学习</a>
+    <form class="inline" method="post" action="/legacy/inbox/daily">
+      <button class="btn good" type="submit">请求日更</button>
+    </form>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="stat"><div class="n">{{ events|length }}</div><div class="l">近 3 日场次</div></div>
+  <div class="stat"><div class="n">{{ study|length }}</div><div class="l">学习待办</div></div>
+  <div class="stat"><div class="n">{{ pending_count }}</div><div class="l">Agent 待处理</div></div>
+  <div class="stat"><div class="n">{{ conflicts|length }}</div><div class="l">近期冲突（预览）</div></div>
+</div>
+
+<div class="panel">
+  <h2>近 3 日 · 测评 / 笔试 / 面试</h2>
+  {% if events %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>时间</th><th>类型</th><th>公司</th><th>岗位</th><th></th></tr></thead>
+      <tbody>
+      {% for e in events %}
+        <tr>
+          <td>{{ e.when.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td><span class="pill">{{ e.label }}</span></td>
+          <td>{{ e.company }}</td>
+          <td>{{ e.position }}</td>
+          <td><a class="btn sm secondary" href="/legacy/progress/{{ e.stem }}">编辑</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">近 3 日暂无排期。到「投递」页填写笔试/面试时间。</div>
+  {% endif %}
+</div>
+
+<div class="panel">
+  <h2>学习任务（近 3 日 / 无截止日期）</h2>
+  {% if study %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>标题</th><th>类型</th><th>截止</th><th>状态</th><th></th></tr></thead>
+      <tbody>
+      {% for c in study %}
+        <tr>
+          <td>{{ c.meta.get('标题') or c.stem }}</td>
+          <td>{{ c.meta.get('类型') }}</td>
+          <td>{{ c.meta.get('截止日期') or '—' }}</td>
+          <td>{{ c.meta.get('状态') }}</td>
+          <td>
+            <form class="inline" method="post" action="/legacy/study/{{ c.stem }}/status">
+              <input type="hidden" name="状态" value="完成" />
+              <button class="btn sm good" type="submit">完成</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">暂无学习待办。<a href="/legacy/study">去安排</a></div>
+  {% endif %}
+</div>
+
+{% if conflicts %}
+<div class="panel">
+  <h2>时间冲突预警</h2>
+  <div class="empty" style="margin:0 0 0.5rem;">以下场次间隔 ≤ 2 小时（完整列表见 <a href="/legacy/conflicts">冲突 / ICS</a>）</div>
+  <ul>
+  {% for a, b in conflicts %}
+    <li>
+      <span class="pill danger">冲突</span>
+      {{ a.company }} {{ a.label }} {{ a.when.strftime('%m-%d %H:%M') }}
+      ↔
+      {{ b.company }} {{ b.label }} {{ b.when.strftime('%m-%d %H:%M') }}
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% if pending_jobs %}
+<div class="panel">
+  <h2>Agent 队列（待处理）</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>id</th><th>意图</th><th>载荷</th><th>创建于</th></tr></thead>
+      <tbody>
+      {% for j in pending_jobs %}
+        <tr>
+          <td><code>{{ j.id }}</code></td>
+          <td>{{ j.intent }}</td>
+          <td>{{ j.payload }}</td>
+          <td>{{ j.created_at }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <p class="hint">打开 Cursor → 说 <code>处理控制台任务</code></p>
+</div>
+{% endif %}
+{% endblock %}

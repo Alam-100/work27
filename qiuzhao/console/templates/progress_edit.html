@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}编辑投递 · {{ card.stem }}{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>{{ card.meta.get('公司') }} · {{ card.meta.get('岗位') }}</h1>
+    <div class="hint">文件：{{ card.rel }}</div>
+  </div>
+  <a class="btn secondary" href="/legacy/progress">返回列表</a>
+</div>
+
+<form method="post" action="/legacy/progress/{{ card.stem }}" class="panel">
+  <div class="form-row">
+    <div class="field">
+      <label>投递状态</label>
+      <select name="投递状态">
+        {% for s in statuses %}
+        <option value="{{ s }}" {% if card.meta.get('投递状态')==s %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label>优先级</label>
+      <select name="优先级">
+        {% for s in priorities %}
+        <option value="{{ s }}" {% if card.meta.get('优先级')==s %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label>结果</label>
+      <select name="结果">
+        {% for s in results %}
+        <option value="{{ s }}" {% if card.meta.get('结果')==s %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="field">
+      <label>招聘计划</label>
+      <select name="招聘计划">
+        {% for s in plans %}
+        <option value="{{ s }}" {% if card.meta.get('招聘计划')==s %}selected{% endif %}>{{ s }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  </div>
+
+  <div class="form-row">
+    {% for name, label in [
+      ('投递时间','投递时间'),('测评时间','测评时间'),('笔试时间','笔试时间'),
+      ('一面','一面'),('二面','二面'),('三面','三面'),('HR面','HR面')
+    ] %}
+    <div class="field">
+      <label>{{ label }}</label>
+      <input name="{{ name }}" value="{{ card.meta.get(name)|fmt_dt }}" placeholder="YYYY-MM-DD HH:mm" />
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="form-row">
+    <div class="field"><label>内推人</label><input name="内推人" value="{{ card.meta.get('内推人') or '' }}" /></div>
+    <div class="field"><label>内推码</label><input name="内推码" value="{{ card.meta.get('内推码') or '' }}" /></div>
+    <div class="field"><label>排序权重</label><input name="排序权重" value="{{ card.meta.get('排序权重') or 3 }}" /></div>
+  </div>
+
+  <div class="field">
+    <label>投递链接</label>
+    <input name="投递链接" value="{{ card.meta.get('投递链接') or '' }}" />
+  </div>
+  <div class="field">
+    <label>备注</label>
+    <textarea name="备注">{{ card.meta.get('备注') or '' }}</textarea>
+  </div>
+
+  <div class="actions">
+    <button class="btn good" type="submit">保存到 Obsidian</button>
+    {% if card.meta.get('投递链接') %}
+    <a class="btn secondary" href="{{ card.meta.get('投递链接') }}" target="_blank" rel="noopener">打开投递页</a>
+    {% endif %}
+  </div>
+</form>
+{% endblock %}

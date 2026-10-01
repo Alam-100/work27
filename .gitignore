@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+qiuzhao/tmp/
+qiuzhao/web/node_modules/
+*.ics
+.DS_Store
+Thumbs.db

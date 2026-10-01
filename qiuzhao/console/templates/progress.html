@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}投递 · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>投递进度</h1>
+    <div class="hint">直接改状态与时间，写入 Obsidian <code>05_投递进度</code></div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>从情报跟进</h2>
+  <form method="post" action="/legacy/progress/from-intel" class="form-row" style="align-items:end;">
+    <div class="field" style="margin:0;">
+      <label>情报卡</label>
+      <select name="intel_stem" required>
+        <option value="">选择岗位…</option>
+        {% for i in intel %}
+        <option value="{{ i.stem }}">{{ i.meta.get('公司') }} · {{ i.meta.get('岗位') }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <button class="btn" type="submit">创建进度卡</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>全部进度（{{ cards|length }}）</h2>
+  {% if cards %}
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>公司</th><th>岗位</th><th>计划</th><th>状态</th><th>优先级</th><th>下一场</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for c in cards %}
+        <tr>
+          <td>{{ c.meta.get('公司') }}</td>
+          <td>{{ c.meta.get('岗位') }}</td>
+          <td>{{ c.meta.get('招聘计划') }}</td>
+          <td><span class="pill">{{ c.meta.get('投递状态') }}</span></td>
+          <td>{{ c.meta.get('优先级') }}</td>
+          <td>{{ c.meta.get('笔试时间')|fmt_dt or c.meta.get('一面')|fmt_dt or '—' }}</td>
+          <td><a class="btn sm" href="/legacy/progress/{{ c.stem }}">编辑</a></td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">暂无进度卡。从上方情报下拉跟进，或让 Agent 处理「跟进投递」队列。</div>
+  {% endif %}
+</div>
+{% endblock %}

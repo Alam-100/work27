@@ -1,0 +1,7 @@
+type=dict
+keys=['d5b2436d-736c-49a5-8f08-a2dab9bff62d', '699128d4-f8c2-4404-bf47-7ba14c54842d', 'd91c3985-30c4-4356-8372-ab1dc8ef9df5', '9ae70f0a-0e0a-4f61-ba3d-008b6816a7fa', '69c17f12-e3e7-44f8-aa31-cd3dcaab9f83', '5f291298-b930-46fd-903d-662840a80e05', '86161d12-2b6f-4e6e-a355-0c769c6213fd', '7ed289a3-8bcc-4abf-9e7d-67ac831c491f', 'f68d39e3-afad-4f30-bcf2-bdf686d6c53b', '38637869-5379-4c0c-8c62-0616b92bbb33', '2992212a-001f-4cbd-8a45-fc73b3deba7b', '1fb2dbe9-acf9-4b25-b19e-9c8bbcf9d386', '6c88956a-1d51-4062-a607-01bc38b0b3e8', '4c74551f-91cc-4ee0-96aa-e883868e6faf', 'b2b12144-cdd1-4560-b973-44a7601079e9', '12a58f72-b0c2-4ec7-806d-c7c5e342c4a6', 'e69d186c-698d-4669-a360-dd0b2e745407', '5bafec0d-91de-49d8-b450-9a8dff15bf3e', '94fb9949-344b-482d-88a0-8bc94e45c47f', 'd0d4c0ee-2836-4043-afac-c1985c342755']
+sample key d5b2436d-736c-49a5-8f08-a2dab9bff62d: type=str
+sample key 699128d4-f8c2-4404-bf47-7ba14c54842d: type=str
+sample key d91c3985-30c4-4356-8372-ab1dc8ef9df5: type=str
+sample key 9ae70f0a-0e0a-4f61-ba3d-008b6816a7fa: type=str
+sample key 69c17f12-e3e7-44f8-aa31-cd3dcaab9f83: type=str

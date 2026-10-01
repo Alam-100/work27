@@ -1,0 +1,11 @@
+plans_work_code_workspace_exists=False
+repo_work_code_workspace_exists=True
+orphan_workspace_json_exists=False
+membership[f590d2c9]=f846d8c4-96bb-46bc-b2d5-4e8c265935ef
+membership[f4433eaf]=f846d8c4-96bb-46bc-b2d5-4e8c265935ef
+membership[91b0ae70]=f846d8c4-96bb-46bc-b2d5-4e8c265935ef
+membership[be98ab58]=f846d8c4-96bb-46bc-b2d5-4e8c265935ef
+work_glass_projects=['秋招 (f846d8c4)']
+bad_glass_project_refs=[]
+metadata_has_work=True
+metadata_bad_refs=[]

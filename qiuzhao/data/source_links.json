@@ -1,0 +1,593 @@
+{
+  "updated": "2026-09-18",
+  "links": [
+    {
+      "url": "https://campus.sma-wiki.cn/campus/campus_recruit.html?channel=zpdt",
+      "type": "汇总表",
+      "batch": "27秋招",
+      "platform": "sma-wiki",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "牛客侧发现的校招汇总；默认筛 互联网/科技+27届秋招；20260918 raw=8976 AI-Agent筛120 missing=58；新增中海达/白杨智能",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://www.nowcoder.com/interview/center?entranceType=%E5%AF%BC%E8%88%AA%E6%A0%8F",
+      "type": "面经列表",
+      "batch": "Agent",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-09-04",
+      "note": "可刷Agent帖；正文常付费截断；见牛客综摘-Agent面经；20260904 详情可读/部分搜索登录墙",
+      "最近检查": "2026-09-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/users/447852788",
+      "type": "作者动态",
+      "batch": "Agent",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-09-04",
+      "note": "Code_Agent；多条AI Agent面经；20260904 详情可读/部分搜索登录墙",
+      "最近检查": "2026-09-04"
+    },
+    {
+      "url": "https://www.xiaohongshu.com/search_result_ai?keyword=agent%25E9%259D%25A2%25E7%25BB%258F&source=web_explore_feed",
+      "type": "面经列表",
+      "batch": "Agent",
+      "platform": "小红书",
+      "status": "停用",
+      "last_checked": "2026-08-16",
+      "note": "机器爬取警告，Agent 不再访问；用户人工看帖可贴题干"
+    },
+    {
+      "url": "https://www.qiuzhifangzhou.com/campus?table=hot",
+      "type": "汇总表",
+      "batch": "混合",
+      "platform": "求职方舟",
+      "status": "有效",
+      "last_checked": "2026-09-09",
+      "note": "fetch_fangzhou ok；20260906c row_count=520 raw=4132",
+      "最近检查": "2026-09-06",
+      "核实于": "2026-09-09"
+    },
+    {
+      "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=agent",
+      "type": "汇总表",
+      "batch": "27秋招",
+      "platform": "OfferStar",
+      "status": "有效",
+      "last_checked": "2026-09-09",
+      "note": "20260906c agent=69；多微信墙；新官方=0；线索 only",
+      "最近检查": "2026-09-06",
+      "核实于": "2026-09-09"
+    },
+    {
+      "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=ai",
+      "type": "汇总表",
+      "batch": "27秋招",
+      "platform": "OfferStar",
+      "status": "有效",
+      "last_checked": "2026-09-09",
+      "note": "20260906c ai filtered Agent关键词=69；多微信墙；线索 only",
+      "最近检查": "2026-09-06",
+      "核实于": "2026-09-09"
+    },
+    {
+      "url": "https://docs.qq.com/smartsheet/DTkRMUVhoUWJXZEhJ?tab=tTNjGc&viewId=vmLdET",
+      "type": "汇总表",
+      "batch": "混合",
+      "platform": "腾讯文档",
+      "status": "需登录",
+      "last_checked": "",
+      "note": "smartsheet；失败则导出 xlsx 后「导入表格」"
+    },
+    {
+      "url": "https://www.nowcoder.com/jobs/school/schedule?jobFirstId=11226&jobType=11200&tab=1&batch=1203",
+      "type": "日程",
+      "batch": "27提前批",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "batch=1203；20260918 raw=46",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://www.nowcoder.com/jobs/school/schedule?jobFirstId=11226&jobType=11200&tab=1&batch=1206",
+      "type": "日程",
+      "batch": "27秋招",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "batch=1206；20260918 raw=28",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://www.nowcoder.com/jobs/school/schedule?jobFirstId=11226&jobType=11200&tab=1&batch=1210",
+      "type": "日程",
+      "batch": "27秋招",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "batch=1210；20260918 raw=375 filtered 合计317；深挖中移互联网/中移在线",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://talent.baidu.com/jobs/list?recommendCode=IZH1K1&recruitType=GRADUATE",
+      "type": "收件箱",
+      "batch": "27秋招",
+      "platform": "百度官网",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "已入库智能体算法J101017"
+    },
+    {
+      "url": "https://careers.oppo.com/university/oppo/campus/post/1850",
+      "type": "收件箱",
+      "batch": "未知",
+      "platform": "OPPO官网",
+      "status": "有效",
+      "last_checked": "2026-08-30",
+      "note": "复检仍在招；推荐码 X7458824"
+    },
+    {
+      "url": "https://careers.pddglobalhr.com/campus/grad/detail?positionId=efb51bb9-c947-4b8d-b3dd-118a171f3b81&t=XM8nweKyRe",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "拼多多",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：拼多多集团-Agent校招"
+    },
+    {
+      "url": "https://ddhd.cn/4/detail?jobAdId=fe33736f-dbad-471a-92f8-f41178704db4",
+      "type": "收件箱",
+      "batch": "未知",
+      "platform": "点点互动",
+      "status": "有效",
+      "last_checked": "2026-08-30",
+      "note": "已入库 J13721 复检仍在招"
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position?keywords=AI%20Agent开发",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "旧实习关键词链；优先用正式批Agent列表"
+    },
+    {
+      "url": "https://seed.bytedance.com/zh/seedearlycareer",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "Seed 大模型人才校招专项"
+    },
+    {
+      "url": "https://join.qq.com/post_detail.html?postid=1274481034578500723",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "腾讯",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：腾讯WXG青云课题（系统向，画像降权）"
+    },
+    {
+      "url": "https://join.qq.com/post.html?keyword=Agent",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "腾讯",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "青云 Agent 课题列表检索"
+    },
+    {
+      "url": "https://app.mokahr.com/campus-recruitment/step/141903#/jobs?keyword=Agent",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "阶跃星辰",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：阶跃星辰-Code-Agent算法"
+    },
+    {
+      "url": "https://app.mokahr.com/campus-recruitment/joinquant/92347#/job/d019685c-2d2f-43a5-945b-4ea309b0e0c5",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "聚宽投资",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：聚宽投资-大模型应用工程师"
+    },
+    {
+      "url": "https://recruiting.unity.cn/982864/",
+      "type": "官网",
+      "batch": "混合",
+      "platform": "Unity中国",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：Unity中国-Agent实习"
+    },
+    {
+      "url": "https://sf-auto.zhiye.com/campus/jobs",
+      "type": "官网",
+      "batch": "混合",
+      "platform": "四方股份",
+      "status": "有效",
+      "last_checked": "2026-07-31",
+      "note": "已入库：四方股份-智能体开发工程师"
+    },
+    {
+      "url": "https://campus.kuaishou.cn/",
+      "type": "官网",
+      "batch": "未知",
+      "platform": "快手",
+      "status": "待检",
+      "last_checked": "2026-07-31",
+      "note": "此前未能抽出实质 JD；可随牛客再深挖"
+    },
+    {
+      "url": "https://talent.alibaba.com/campus/position-list?lang=zh&campusType=freshman",
+      "type": "官网",
+      "batch": "未知",
+      "platform": "阿里巴巴",
+      "status": "待检",
+      "last_checked": "2026-07-31",
+      "note": "2026-07-31 曾显示 0 岗；定期复检"
+    },
+    {
+      "url": "https://lilithgames.jobs.feishu.cn/campus/position/list?keywords=Agent",
+      "type": "官网",
+      "batch": "27提前批",
+      "platform": "莉莉丝",
+      "status": "有效",
+      "last_checked": "2026-08-03",
+      "note": "已入库 LLM/Agent 提前批"
+    },
+    {
+      "url": "https://agirobot.jobs.feishu.cn/946993/?keywords=Agent&spread=DRAM3BS",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "智元",
+      "status": "有效",
+      "last_checked": "2026-08-03",
+      "note": "已入库灵犀 Agent"
+    },
+    {
+      "url": "https://talent.baidu.com/jobs/list?recruitType=GRADUATE",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "百度",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "已入库智能体算法J101017"
+    },
+    {
+      "url": "https://campus.163.com/",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "网易",
+      "status": "待检",
+      "last_checked": "2026-08-03",
+      "note": "本轮深挖失败"
+    },
+    {
+      "url": "https://apply.careers.dji.com/su/ggzkby",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "大疆",
+      "status": "待检",
+      "last_checked": "2026-08-03",
+      "note": "本轮连接失败"
+    },
+    {
+      "url": "https://leihuo.163.com/campus/#/full",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "网易雷火",
+      "status": "待检",
+      "last_checked": "2026-08-03",
+      "note": "有 Agent 岗名无实质 JD"
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position/7667885791859837237/detail?spread=5YNTDRM",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "Agent开发-AI Platform"
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position/7668617888100567301/detail?spread=5YNTDRM",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "Agent开发-豆包"
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position/7667160543863343365/detail?spread=5YNTDRM",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-08-06",
+      "note": "Agent开发-Coze"
+    },
+    {
+      "url": "https://talent.lenovo.com.cn",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "联想",
+      "status": "有效",
+      "last_checked": "2026-08-08",
+      "note": "已入库 AI Agent开发工程师 id=2404"
+    },
+    {
+      "url": "https://campus.jd.com/#/",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "京东",
+      "status": "有效",
+      "last_checked": "2026-09-17",
+      "note": "已入库：TGT零售Agent#6049、国际电商Agent#8664；permalink /#/details?id="
+    },
+    {
+      "url": "https://campus-talent.alibaba.com/campus/position/199907620013",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "阿里巴巴",
+      "status": "有效",
+      "last_checked": "2026-08-08",
+      "note": "已入库：AI应用研发工程师"
+    },
+    {
+      "url": "https://talent.lenovo.com.cn/position/detail?id=2404",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "联想",
+      "status": "有效",
+      "last_checked": "2026-08-08",
+      "note": "已入库：AI Agent开发工程师"
+    },
+    {
+      "url": "https://hf7l9aiqzx.jobs.feishu.cn/704852/position/7670760057504450859/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "去哪儿",
+      "status": "有效",
+      "last_checked": "2026-08-08",
+      "note": "已入库：AI应用开发工程师全栈"
+    },
+    {
+      "url": "https://zhaopin.meituan.com/web/longcat",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "美团",
+      "status": "有效",
+      "last_checked": "2026-08-08",
+      "note": "LongCat；已入库通用agent研究岗；含其他研究向"
+    },
+    {
+      "url": "https://career.huawei.com/cn/campus-recruitment-job-list?recruitmentType=FRESH_GRADUATE",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "华为",
+      "status": "有效",
+      "last_checked": "2026-09-09",
+      "note": "列表页无实质JD；harvest_huawei_campus.py 按岗位意向入库；用户点名昇腾/AI Infra 时加 --include-infra",
+      "最近检查": "2026-09-03",
+      "核实于": "2026-09-09"
+    },
+    {
+      "url": "https://hr-campus.vivo.com/campus/jobs",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "vivo",
+      "status": "有效",
+      "last_checked": "2026-08-31",
+      "note": "Beisen GetJobAdPageList；秋招批次 FAQ 网申截止 2026-09-15 12:00；岗位 API 无 EndTime"
+    },
+    {
+      "url": "https://hr-campus.vivo.com/custom/7a6a990a-4fa5-8871-03ef-f4f53b9b9190",
+      "type": "官网FAQ",
+      "batch": "27秋招",
+      "platform": "vivo",
+      "status": "有效",
+      "last_checked": "2026-08-31",
+      "note": "2027届秋季校园招聘公告&FAQ；网申截止与笔试时间以此为准"
+    },
+    {
+      "url": "https://campus-talent.alibaba.com/campus/position?batchId=100000760001&filterParams=%7B%22customDept%22%3A%5B%22PQHNXW%22%5D%7D",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "平头哥",
+      "status": "有效",
+      "last_checked": "2026-08-31",
+      "note": "阿里校招 SPA 部门=平头哥；限投每集团 2 意向；单岗截止未抽出"
+    },
+    {
+      "url": "https://cxmt.zhiye.com/campus/jobs",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "长鑫存储",
+      "status": "有效",
+      "last_checked": "2026-08-31",
+      "note": "jobs.cxmt.com 本轮连不上；有效门户 cxmt.zhiye.com Beisen；单岗无截止"
+    },
+    {
+      "url": "https://yealink.zhiye.com/campus/jobs",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "亿联网络",
+      "status": "有效",
+      "last_checked": "2026-09-02",
+      "note": "已入库 Agent 开发 J12357；厦门；单岗无截止"
+    },
+    {
+      "url": "https://chinacuc.zhiye.com/campus/jobs",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "中国联合工程",
+      "status": "有效",
+      "last_checked": "2026-09-02",
+      "note": "已入库智能体应用开发 J11205；杭州硕士；单岗无截止"
+    },
+    {
+      "url": "https://x2-robot.jobs.feishu.cn/912130/position/7678252816276556086/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "自变量机器人",
+      "status": "有效",
+      "last_checked": "2026-09-02",
+      "note": "Agent开发工程师详情；深圳；方舟 09-03 未在详情页出现"
+    },
+    {
+      "url": "https://jobs.bytedance.com/campus/position/7676056716118755637/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "字节跳动",
+      "status": "有效",
+      "last_checked": "2026-09-02",
+      "note": "飞书 Agent全栈研发 A218449；深/上/北/杭"
+    },
+    {
+      "url": "https://campus-talent.alibaba.com/campus/position/199907720103",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "阿里巴巴",
+      "status": "有效",
+      "last_checked": "2026-09-02",
+      "note": "阿里星智能体运行时安全；杭州；2026-09-02 更新"
+    },
+    {
+      "url": "https://job.xidian.edu.cn",
+      "type": "校园活动",
+      "batch": "西电",
+      "platform": "西电就业网",
+      "status": "有效",
+      "note": "首页 SSR 宣讲/双选面板；主抓取入口之一",
+      "last_checked": "2026-09-16",
+      "最近检查": "2026-09-16",
+      "核实于": "2026-09-16"
+    },
+    {
+      "url": "https://job.xidian.edu.cn/teachin/index",
+      "type": "校园活动",
+      "batch": "西电",
+      "platform": "西电就业网",
+      "status": "有效",
+      "note": "宣讲会列表（北/南/线上）；Playwright 渲染",
+      "last_checked": "2026-09-16",
+      "最近检查": "2026-09-16",
+      "核实于": "2026-09-16"
+    },
+    {
+      "url": "https://job.xidian.edu.cn/jobfair",
+      "type": "校园活动",
+      "batch": "西电",
+      "platform": "西电就业网",
+      "status": "有效",
+      "note": "招聘会/双选/组团；Playwright 渲染",
+      "last_checked": "2026-09-16",
+      "最近检查": "2026-09-16",
+      "核实于": "2026-09-16"
+    },
+    {
+      "url": "https://campus.jd.com/#/details?id=6049",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "京东",
+      "status": "有效",
+      "last_checked": "2026-09-17",
+      "note": "TGT 面向零售全场景的Agent研究与落地"
+    },
+    {
+      "url": "https://campus.jd.com/#/details?id=8664",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "京东",
+      "status": "有效",
+      "last_checked": "2026-09-17",
+      "note": "TGT 国际电商Agent应用与ToolRL探索"
+    },
+    {
+      "url": "https://yunzhangfang.zhiye.com/campus/detail?jobAdId=c4453186-bf1c-4ff0-951e-0f1ea9503379",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "云帐房",
+      "status": "有效",
+      "last_checked": "2026-09-17",
+      "note": "已入库 AI Agent开发工程师"
+    },
+    {
+      "url": "https://hr.sangfor.com/campucompon/Delivery/4520",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "深信服",
+      "status": "有效",
+      "last_checked": "2026-09-17",
+      "note": "X-STAR本硕；方向三Agent开发"
+    },
+    {
+      "url": "https://www.zhdgps.com/college",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "中海达",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "已入库 Agent开发工程师 J12320",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://baiyangai.jobs.feishu.cn/763647/position/7673816460658231590/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "白杨智能",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "已入库 大模型agent开发工程师",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://baiyangai.jobs.feishu.cn/763647/position/7673817593505220915/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "白杨智能",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "已入库 大模型算法工程师",
+      "最近检查": "2026-09-18",
+      "核实于": "2026-09-18"
+    },
+    {
+      "url": "https://job.10086.cn/personal/job/detail.html?id=aaf76b27-aa8e-40ef-8e14-3dde144a95d1&typess=1",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "中移互联网",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "已入库 AI智能体研发工程师；截止 2026-10-08"
+    },
+    {
+      "url": "https://job.10086.cn/personal/job/detail.html?id=c60cb23f-e8bc-43b6-b649-3dd13ab75b63&typess=1",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "中移在线",
+      "status": "有效",
+      "last_checked": "2026-09-18",
+      "note": "已入库 算法工程师（智能体工程方向）；截止 2026-10-15"
+    }
+  ]
+}

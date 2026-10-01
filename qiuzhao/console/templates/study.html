@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block title %}学习 · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>学习 / 手撕任务</h1>
+    <div class="hint">安排面经复习与手撕；手撕默认链到高频清单</div>
+  </div>
+</div>
+
+<div class="panel">
+  <h2>新建任务</h2>
+  <form method="post" action="/legacy/study/create">
+    <div class="form-row">
+      <div class="field">
+        <label>标题</label>
+        <input name="标题" required placeholder="例如：RAG 检索评测 / 滑动窗口手撕" />
+      </div>
+      <div class="field">
+        <label>类型</label>
+        <select name="类型">
+          {% for t in types %}
+          <option value="{{ t }}">{{ t }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="field">
+        <label>关联公司</label>
+        <input name="关联公司" placeholder="可选" />
+      </div>
+      <div class="field">
+        <label>截止日期</label>
+        <input name="截止日期" placeholder="YYYY-MM-DD" />
+      </div>
+    </div>
+    <div class="field">
+      <label>关联笔记（wikilink，可选）</label>
+      <input name="关联笔记" placeholder="[[秋招/06_知识库/...]]" />
+    </div>
+    <div class="field">
+      <label>备注</label>
+      <textarea name="备注"></textarea>
+    </div>
+    <button class="btn" type="submit">安排任务</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>进行中（{{ open_cards|length }}）</h2>
+  {% if open_cards %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>标题</th><th>类型</th><th>公司</th><th>截止</th><th>状态</th><th></th></tr></thead>
+      <tbody>
+      {% for c in open_cards %}
+        <tr>
+          <td>{{ c.meta.get('标题') }}</td>
+          <td>{{ c.meta.get('类型') }}</td>
+          <td>{{ c.meta.get('关联公司') or '—' }}</td>
+          <td>{{ c.meta.get('截止日期') or '—' }}</td>
+          <td>{{ c.meta.get('状态') }}</td>
+          <td class="actions">
+            <form class="inline" method="post" action="/legacy/study/{{ c.stem }}/status">
+              <input type="hidden" name="状态" value="进行中" />
+              <button class="btn sm secondary" type="submit">进行中</button>
+            </form>
+            <form class="inline" method="post" action="/legacy/study/{{ c.stem }}/status">
+              <input type="hidden" name="状态" value="完成" />
+              <button class="btn sm good" type="submit">完成</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">暂无未完成任务。</div>
+  {% endif %}
+</div>
+
+{% if done_cards %}
+<div class="panel">
+  <h2>已完成（{{ done_cards|length }}）</h2>
+  <ul>
+  {% for c in done_cards[:20] %}
+    <li>{{ c.meta.get('标题') }} · {{ c.meta.get('类型') }}</li>
+  {% endfor %}
+  </ul>
+</div>
+{% endif %}
+{% endblock %}

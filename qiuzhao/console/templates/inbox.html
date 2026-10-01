@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}入队 · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>任务入队</h1>
+    <div class="hint">不用背口令：点按钮入队 → Cursor 说「处理控制台任务」</div>
+  </div>
+  <form method="post" action="/legacy/inbox/daily">
+    <button class="btn good" type="submit">请求每日情报更新</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>贴链接（可多行）</h2>
+  <form method="post" action="/legacy/inbox/urls">
+    <div class="field">
+      <label>URL</label>
+      <textarea name="urls" placeholder="https://...&#10;https://..."></textarea>
+    </div>
+    <button class="btn" type="submit">入队 · 链接入库</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>收集公司</h2>
+  <form method="post" action="/legacy/inbox/company" class="form-row" style="align-items:end;">
+    <div class="field" style="margin:0;">
+      <label>公司名</label>
+      <input name="company" placeholder="例如：美团" required />
+    </div>
+    <button class="btn" type="submit">入队 · 收集秋招</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>面经图片</h2>
+  <form method="post" action="/legacy/inbox/images" class="form-row" style="align-items:end;">
+    <div class="field" style="margin:0;">
+      <label>公司（对应 _inbox_images/公司）</label>
+      <input name="company" placeholder="例如：阿里巴巴" />
+    </div>
+    <button class="btn secondary" type="submit">入队 · 处理面经图片</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>队列最近记录</h2>
+  {% if jobs %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>id</th><th>创建于</th><th>意图</th><th>载荷</th><th>状态</th><th>结果</th></tr></thead>
+      <tbody>
+      {% for j in jobs %}
+        <tr>
+          <td><code>{{ j.id }}</code></td>
+          <td>{{ j.created_at }}</td>
+          <td>{{ j.intent }}</td>
+          <td>{{ j.payload }}</td>
+          <td>
+            {% if j.status == '待处理' %}<span class="pill warn">{{ j.status }}</span>
+            {% elif j.status == '完成' %}<span class="pill good">{{ j.status }}</span>
+            {% elif j.status == '失败' %}<span class="pill danger">{{ j.status }}</span>
+            {% else %}<span class="pill">{{ j.status }}</span>{% endif %}
+          </td>
+          <td>{{ j.result }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">队列为空。</div>
+  {% endif %}
+</div>
+{% endblock %}

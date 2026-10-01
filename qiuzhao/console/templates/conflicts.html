@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}冲突 / ICS · 秋招控制台{% endblock %}
+{% block content %}
+<div class="topbar">
+  <div>
+    <h1>冲突检测 &amp; 日程导出</h1>
+    <div class="hint">间隔 ≤ 2 小时视为冲突；ICS 写回 Obsidian 看板</div>
+  </div>
+  <form method="post" action="/legacy/export-ics">
+    <button class="btn good" type="submit">导出 ICS</button>
+  </form>
+</div>
+
+<div class="panel">
+  <h2>冲突（未来 14 天）</h2>
+  {% if conflicts %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>场次 A</th><th>场次 B</th><th>间隔</th></tr></thead>
+      <tbody>
+      {% for a, b in conflicts %}
+        <tr>
+          <td>
+            <a href="/legacy/progress/{{ a.stem }}">{{ a.company }}</a>
+            {{ a.label }} {{ a.when.strftime('%Y-%m-%d %H:%M') }}
+          </td>
+          <td>
+            <a href="/legacy/progress/{{ b.stem }}">{{ b.company }}</a>
+            {{ b.label }} {{ b.when.strftime('%Y-%m-%d %H:%M') }}
+          </td>
+          <td>{{ ((b.when - a.when).total_seconds() / 3600)|round(1) }} h</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">未发现冲突。</div>
+  {% endif %}
+</div>
+
+<div class="panel">
+  <h2>近 14 日场次</h2>
+  {% if events %}
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>时间</th><th>类型</th><th>公司</th><th>岗位</th></tr></thead>
+      <tbody>
+      {% for e in events %}
+        <tr>
+          <td>{{ e.when.strftime('%Y-%m-%d %H:%M') }}</td>
+          <td>{{ e.label }}</td>
+          <td><a href="/legacy/progress/{{ e.stem }}">{{ e.company }}</a></td>
+          <td>{{ e.position }}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  <div class="empty">近 14 日无排期。</div>
+  {% endif %}
+</div>
+{% endblock %}

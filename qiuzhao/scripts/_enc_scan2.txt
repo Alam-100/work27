@@ -1,0 +1,58 @@
+md good=704 bad=266
+unique first16 among bad=1 unique first32=1
+top first32:
+  n=266 24 1a 9c 92 6d 85 ce 6d 6f 93 4c d2 44 fc dc 3b 98 25 67 cf 3f 77 ea c1 c5 b7 19 f8 16 ee f9 6f
+bad mtime min=2026-06-17 23:25:51.654637 max=2026-09-11 18:28:19.043257
+good mtime min=2026-07-29 16:47:54.331468 max=2026-09-13 19:02:16.550436
+--- bad mtime by day (latest 15) ---
+  2026-06-17 bad=1 good=0
+  2026-08-16 bad=9 good=28
+  2026-08-20 bad=1 good=4
+  2026-08-30 bad=1 good=3
+  2026-09-01 bad=1 good=20
+  2026-09-06 bad=7 good=153
+  2026-09-08 bad=7 good=62
+  2026-09-09 bad=4 good=26
+  2026-09-10 bad=12 good=40
+  2026-09-11 bad=223 good=82
+--- by top folder bad/good ---
+  00_画像: bad=0 good=2
+  01_看板: bad=2 good=2
+  02_情报库: bad=108 good=320
+  02_投递: bad=0 good=1
+  03_面经: bad=15 good=23
+  04_情报: bad=1 good=9
+  05_投递进度: bad=3 good=10
+  06_知识库: bad=56 good=109
+  07_任务: bad=1 good=3
+  08_面试准备: bad=5 good=4
+  09_口述题答: bad=5 good=21
+  10_校园活动: bad=66 good=199
+  使用说明.md: bad=1 good=0
+  修改日志.md: bad=1 good=0
+  文件夹与职责说明.md: bad=1 good=0
+  未命名.md: bad=1 good=0
+  链接整理.md: bad=0 good=1
+magic files outside 秋招: 19
+  agents.md
+  guardrails.md
+  主控看板.md
+  .obsidian\types.json
+  .obsidian\plugins\obsidian-day-planner\data.json
+  .obsidian\plugins\obsidian-file-color\data.json
+  .obsidian\plugins\obsidian-icon-folder\data.json
+  Agent\LLM的温度系数和TopK.md
+  Agent\Hello-Agent\hello-agents\第一章 初识智能体.md
+  Agent\Hello-Agent\hello-agents\第九章 上下文工程.md
+  Agent\Hello-Agent\hello-agents\第二章 智能体发展史.md
+  Agent\Hello-Agent\hello-agents\第八章 记忆与检索.md
+  Day Planners\2026-07-14.md
+  RAG\嵌入.md
+  Templates\知识延伸模版.md
+  Templates\秋招-岗位情报.md
+  Templates\秋招-求职画像.md
+  Templates\秋招-答案原稿.md
+  前后端\Cache映射计算.md
+--- NTFS attributes kind x flags ---
+  ('good', ('ARCHIVE',)): 704
+  ('bad', ('ARCHIVE',)): 266

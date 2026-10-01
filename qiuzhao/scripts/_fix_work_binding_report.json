@@ -1,0 +1,17 @@
+{
+  "projects_changed": 2,
+  "removed_project_ids": [],
+  "membership_changed": 1,
+  "metadata_entries_removed": 3,
+  "qiuzhao_composers": [
+    "91b0ae70-f811-477e-a925-7a8ffb24d10a",
+    "a7d09259-c694-42f6-9658-0c3cc94df08e",
+    "be98ab58-dee7-4f76-aa09-5da7f85ac341",
+    "f4433eaf-cad0-4526-9db7-bc9e34b58649",
+    "f590d2c9-8fee-4e0d-93ee-6c03974a53e9"
+  ],
+  "target_project": "f846d8c4-96bb-46bc-b2d5-4e8c265935ef",
+  "headers_changed": 0,
+  "disk_changed": 5,
+  "sidebar_added": 5
+}
