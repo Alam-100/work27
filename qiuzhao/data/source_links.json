@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18",
+  "updated": "2026-10-04",
   "links": [
     {
       "url": "https://campus.sma-wiki.cn/campus/campus_recruit.html?channel=zpdt",
@@ -7,10 +7,10 @@
       "batch": "27秋招",
       "platform": "sma-wiki",
       "status": "有效",
-      "last_checked": "2026-09-18",
-      "note": "牛客侧发现的校招汇总；默认筛 互联网/科技+27届秋招；20260918 raw=8976 AI-Agent筛120 missing=58；新增中海达/白杨智能",
-      "最近检查": "2026-09-18",
-      "核实于": "2026-09-18"
+      "last_checked": "2026-10-04",
+      "note": "牛客侧发现的校招汇总；默认筛 互联网/科技+27届秋招；20261004 raw=10154 AI-Agent筛120；本轮官网深挖新公司见来源日志。20260918 raw=8976 missing=58",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://www.nowcoder.com/interview/center?entranceType=%E5%AF%BC%E8%88%AA%E6%A0%8F",
@@ -18,9 +18,9 @@
       "batch": "Agent",
       "platform": "牛客",
       "status": "有效",
-      "last_checked": "2026-09-04",
-      "note": "可刷Agent帖；正文常付费截断；见牛客综摘-Agent面经；20260904 详情可读/部分搜索登录墙",
-      "最近检查": "2026-09-04"
+      "last_checked": "2026-10-04",
+      "note": "可刷Agent帖；20261004 打开歌尔 Agent 开发一面全文并入库；同日另打开华为校招/实习面经全文（Agent实习、AI应用、AI技术应用、车BU多模态、AI机器学习、26届本科）。字节旧帖未新建题库以免覆盖本地库。部分搜索仍可能登录墙",
+      "最近检查": "2026-10-04"
     },
     {
       "url": "https://www.nowcoder.com/users/447852788",
@@ -47,10 +47,10 @@
       "batch": "混合",
       "platform": "求职方舟",
       "status": "有效",
-      "last_checked": "2026-09-09",
-      "note": "fetch_fangzhou ok；20260906c row_count=520 raw=4132",
-      "最近检查": "2026-09-06",
-      "核实于": "2026-09-09"
+      "last_checked": "2026-10-04",
+      "note": "fetch_fangzhou ok；20261004 关键词 Agent/智能体/大模型应用 limit=30 row_count=30；20260906c row_count=520 raw=4132",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=agent",
@@ -58,10 +58,10 @@
       "batch": "27秋招",
       "platform": "OfferStar",
       "status": "有效",
-      "last_checked": "2026-09-09",
-      "note": "20260906c agent=69；多微信墙；新官方=0；线索 only",
-      "最近检查": "2026-09-06",
-      "核实于": "2026-09-09"
+      "last_checked": "2026-10-04",
+      "note": "20261004 agent筛选114，微信墙113，非微信仅拼多多列表（已有公司不扩）；20260906c agent=69",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=ai",
@@ -89,10 +89,10 @@
       "batch": "27提前批",
       "platform": "牛客",
       "status": "有效",
-      "last_checked": "2026-09-18",
-      "note": "batch=1203；20260918 raw=46",
-      "最近检查": "2026-09-18",
-      "核实于": "2026-09-18"
+      "last_checked": "2026-10-04",
+      "note": "batch=1203；20261004 raw=46；三批次合计 raw=475 filtered=329",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://www.nowcoder.com/jobs/school/schedule?jobFirstId=11226&jobType=11200&tab=1&batch=1206",
@@ -100,10 +100,10 @@
       "batch": "27秋招",
       "platform": "牛客",
       "status": "有效",
-      "last_checked": "2026-09-18",
-      "note": "batch=1206；20260918 raw=28",
-      "最近检查": "2026-09-18",
-      "核实于": "2026-09-18"
+      "last_checked": "2026-10-04",
+      "note": "batch=1206；20261004 raw=28",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://www.nowcoder.com/jobs/school/schedule?jobFirstId=11226&jobType=11200&tab=1&batch=1210",
@@ -111,10 +111,10 @@
       "batch": "27秋招",
       "platform": "牛客",
       "status": "有效",
-      "last_checked": "2026-09-18",
-      "note": "batch=1210；20260918 raw=375 filtered 合计317；深挖中移互联网/中移在线",
-      "最近检查": "2026-09-18",
-      "核实于": "2026-09-18"
+      "last_checked": "2026-10-04",
+      "note": "batch=1210；20261004 raw=399；三批次 filtered=329。20260918 曾深挖中移互联网/中移在线",
+      "最近检查": "2026-10-04",
+      "核实于": "2026-10-04"
     },
     {
       "url": "https://talent.baidu.com/jobs/list?recommendCode=IZH1K1&recruitType=GRADUATE",
@@ -588,6 +588,76 @@
       "status": "有效",
       "last_checked": "2026-09-18",
       "note": "已入库 算法工程师（智能体工程方向）；截止 2026-10-15"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/63f974c8a2214503bdc0ad7505cdc15b",
+      "type": "面经",
+      "batch": "实习",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为某BG Agent岗位技术面+主管面；全文已读。页面时间 07-18，未见公元年",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/846845232674058240",
+      "type": "面经",
+      "batch": "26届",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为AI应用工程师一面，面试 2026-01-20；接口全文已读",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/884479038142586880",
+      "type": "面经",
+      "batch": "26届",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为AI应用工程师-AI技术应用，2026-05-14 技术面+主管面；接口全文已读",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/9b4891bbe3004b62b13772e2662f1486",
+      "type": "面经",
+      "batch": "27秋招",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为车BU多模态大模型算法二面，2026-09-17；全文已读",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/045f8b5f9c4d4ef2b49ad0e961fe78d9",
+      "type": "面经",
+      "batch": "27秋招",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为车BU多模态主管三面，2026-09-17；全文已读",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/812359680532951040",
+      "type": "面经",
+      "batch": "26届",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为AI岗机器学习线下面试，2025-10-27；接口全文已读",
+      "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/850791245487042560",
+      "type": "面经",
+      "batch": "26届",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-04",
+      "note": "华为26届本科校招面经，面试 2026-02-10；岗位名未写；接口全文已读",
+      "最近检查": "2026-10-04"
     }
   ]
 }
