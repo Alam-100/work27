@@ -11,6 +11,26 @@
 | 共享 IO | `qiuzhao/scripts/vault_io.py` | 控制台与 Skill 共用读写 |
 | 抓取 | `qiuzhao/scripts/fetch_*.py` | HTTP / Playwright |
 
+### Cloud Agent：对话仓库与笔记真源
+
+硬性条款在 `.cursor/skills/qiuzhao-assistant/SKILL.md`「云端仓库与笔记真源」。面经搜寻只指向该节，不另定路径。后续收集要补的边界，只改这两处。
+
+- 对话主仓库选 **work27**，才会加载 `.cursor/skills/` 与 `qiuzhao/scripts/`。只选 my-obsidian 不会加载这些 skill。
+- 环境同时克隆 **work27** 与 **my-obsidian**。只配环境、对话不把 work27 当工作区，技能不会生效；环境里没有 my-obsidian，就写不进 Obsidian 远程。
+- 笔记写入 my-obsidian 里已有的 `秋招/`（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停。
+- 笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
+- 用户明确说可以直接推 my-obsidian 的 main 时才推 main；否则开 PR。禁止强推。本机仍走下文 `vault_dual_backup.py`；云端不要用它绕过这条边界。
+
+可粘贴到 Cursor User Rules（管所有对话；本仓库 skill 只在工作区能读到 work27 时生效）：
+
+```text
+秋招与面经收集以 work27 的 qiuzhao-assistant / qiuzhao-mianshi-search 为准，不要在每条对话里重复收集格式。
+对话主仓库只选 Alam-100/work27，这样才会加载这些 skill 和脚本。
+环境里同时放入 work27 与 my-obsidian。只选环境、对话不把 work27 当工作区，技能不会生效。
+笔记正文写入 my-obsidian 里已有的「秋招/」相对路径，不另起目录，不把 vault 历史库复制进 work 当第二真源。
+work27 只改脚本、source_links、修改日志。未明确允许时，不要直接推 my-obsidian 的 main，按保护规则开 PR，禁止强推。
+```
+
 ### 启动
 
 | 场景 | 入口 | 地址 |
@@ -376,3 +396,4 @@ python qiuzhao\scripts\vault_dual_backup.py -m "简短说明"
 2. 追加 `秋招/修改日志.md` 与仓库 `CHANGELOG.md`
 3. work 仓库 git commit
 4. 用户主文档：`秋招/文件夹与职责说明.md`
+5. 云端主仓库、环境与笔记落点见上文「Cloud Agent：对话仓库与笔记真源」

@@ -30,8 +30,18 @@ description: >-
 - 根目录：`秋招/`
 - Vault IO：`qiuzhao/scripts/vault_io.py`（控制台与助手共用）
 - 改库后：更新 `更新于`；在 `秋招/04_情报/来源日志.md` 与工作区 `CHANGELOG.md` 记一笔
-- **双重备份（强制）**：凡写入 vault 干净内容后，必须立刻跑 `python qiuzhao/scripts/vault_dual_backup.py -m "简短说明"` 把干净部分推到 GitHub，并刷新 D 盘镜像。E 盘随时可能损坏；禁止只改 E: 不推远程。详见文末「双重备份」。
+- **本机双重备份（强制）**：凡写入 vault 干净内容后，必须立刻跑 `python qiuzhao/scripts/vault_dual_backup.py -m "简短说明"` 把干净部分推到 GitHub，并刷新 D 盘镜像。E 盘随时可能损坏；禁止只改 E: 不推远程。详见文末「双重备份」。云端见下节。
 - 职责总览：`秋招/文件夹与职责说明.md`
+
+## 云端仓库与笔记真源（强制）
+
+收集秋招与面经时遵守本节。补丁只改本节，并同步 `qiuzhao/DEV.md` 同名节；不另建规则文件，也不靠每次对话粘贴长 prompt。本 Skill 只在对话工作区能读到本仓库时加载。
+
+- **对话主仓库**：选 **work27**（`Alam-100/work27`）。`.cursor/skills/` 与 `qiuzhao/scripts/` 只随这个工作区加载。只选 my-obsidian，这些 skill 不会自动生效。
+- **环境**：虚拟机里同时克隆 **work27** 与 **my-obsidian**。只配环境、对话却不把 work27 当工作区，技能不会生效；只选 work27、环境里没有 my-obsidian，就写不进 Obsidian 远程。
+- **笔记落点**：写入 my-obsidian 克隆里已经存在的 `秋招/` 相对路径（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停并说明。
+- **分工**：笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
+- **推送**：用户明确说可以直接推 my-obsidian 的 main 时才推 main；否则按该仓库保护规则开 PR。禁止强推。本机备份仍走文末「双重备份」；云端不要用该脚本绕过这条推送边界。
 
 ## 目录约定（分层）
 
@@ -334,6 +344,8 @@ Bases：`秋招/01_看板/秋招投递.base` → 只过滤 `05_投递进度`。
 5. **收工双重备份**（有 vault 写入则必做）→ `vault_dual_backup.py`
 
 ## 双重备份（强制 · 防 E 盘再损坏）
+
+本机适用。Cloud Agent 的仓库选择、笔记落点与 my-obsidian 推送边界见上文「云端仓库与笔记真源」，不要用本节脚本代替。
 
 根因：E 盘机械盘 NTFS 可能随时损坏。干净内容必须以 GitHub + D 盘镜像为异盘副本。
 
