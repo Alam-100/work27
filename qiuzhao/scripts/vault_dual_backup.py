@@ -25,7 +25,7 @@ from pathlib import Path
 
 REPO = Path(r"E:\obsidian")
 MIRROR = Path(r"D:\backup\my-obsidian-mirror")
-REMOTE = "https://github.com/Alam-100/my-obsidian.git"
+REMOTE = "git@github.com:Alam-100/my-obsidian.git"
 VAULT_REL = Path("My_docs")
 
 

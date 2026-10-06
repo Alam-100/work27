@@ -216,13 +216,7 @@ DEFAULT_PROCESS_TEMPLATE: list[dict[str, Any]] = [
 ]
 
 
-DEFAULT_VAULT = (
-    Path.home()
-    / "Documents"
-    / "ObsidianRecovery"
-    / "my-obsidian-20260921"
-    / "My_docs"
-)
+DEFAULT_VAULT = Path(r"E:\obsidian\My_docs")
 
 
 def vault_root() -> Path:

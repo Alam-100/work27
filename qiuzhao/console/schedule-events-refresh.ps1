@@ -2,11 +2,11 @@
 $ErrorActionPreference = "Stop"
 $Root = Split-Path (Split-Path $PSScriptRoot -Parent) -Parent
 if (-not (Test-Path (Join-Path $Root "qiuzhao\scripts\fetch_xidian_events.py"))) {
-  $Root = "D:\AgentProjects\work"
+  $Root = "D:\AgentProjects\work27"
 }
 Set-Location $Root
 if (-not $env:QIUZHAO_VAULT) {
-  $env:QIUZHAO_VAULT = "C:\Users\xd\Documents\ObsidianRecovery\my-obsidian-20260921\My_docs"
+  $env:QIUZHAO_VAULT = "E:\obsidian\My_docs"
 }
 $py = "py"
 $out = Join-Path $Root "qiuzhao\tmp\xidian_events.json"

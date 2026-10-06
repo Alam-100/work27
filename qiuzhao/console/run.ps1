@@ -1,7 +1,7 @@
 $ErrorActionPreference = "Stop"
 $Root = Split-Path -Parent $PSScriptRoot
 if (-not $env:QIUZHAO_VAULT) {
-  $env:QIUZHAO_VAULT = "C:\Users\xd\Documents\ObsidianRecovery\my-obsidian-20260921\My_docs"
+  $env:QIUZHAO_VAULT = "E:\obsidian\My_docs"
 }
 Write-Host "QIUZHAO_VAULT=$env:QIUZHAO_VAULT"
 Write-Host "API + SPA (if built): http://127.0.0.1:8765"

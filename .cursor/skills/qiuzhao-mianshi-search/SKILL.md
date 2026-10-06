@@ -193,9 +193,11 @@ description: >-
 | 角色 | 路径 |
 | --- | --- |
 | Git 根 / 主工作副本 | `E:\obsidian`（vault 在 `E:\obsidian\My_docs`） |
-| 远程 | `https://github.com/Alam-100/my-obsidian.git` |
+| 远程 | `git@github.com:Alam-100/my-obsidian.git` |
 | D 盘异盘镜像 | `D:\backup\my-obsidian-mirror` |
 | 一键脚本 | `qiuzhao/scripts/vault_dual_backup.py` |
+
+日常只对齐远程时，在 `E:\obsidian` 执行 `git pull --ff-only`。有本地笔记提交后再 `git push`，或跑下面的双重备份脚本。不要强推。Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidian`。
 
 **每次**向 vault 写入干净内容后立刻：
 

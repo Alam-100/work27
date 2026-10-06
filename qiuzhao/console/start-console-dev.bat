@@ -2,8 +2,8 @@
 setlocal
 chcp 65001 >nul
 REM Dev launcher: Vite HMR + uvicorn --reload
-cd /d d:\AgentProjects\work
-set QIUZHAO_VAULT=C:\Users\xd\Documents\ObsidianRecovery\my-obsidian-20260921\My_docs
+cd /d d:\AgentProjects\work27
+set QIUZHAO_VAULT=E:\obsidian\My_docs
 
 echo.
 echo Qiuzhao DEV — hot reload

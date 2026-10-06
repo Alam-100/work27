@@ -7,7 +7,7 @@ $EnsurePort = Join-Path $ConsoleDir "_ensure-port.ps1"
 $WaitOpen = Join-Path $ConsoleDir "_wait-and-open.ps1"
 
 if (-not $env:QIUZHAO_VAULT) {
-  $env:QIUZHAO_VAULT = "C:\Users\xd\Documents\ObsidianRecovery\my-obsidian-20260921\My_docs"
+  $env:QIUZHAO_VAULT = "E:\obsidian\My_docs"
 }
 
 Write-Host ""

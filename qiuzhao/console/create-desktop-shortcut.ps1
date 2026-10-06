@@ -36,7 +36,7 @@ foreach ($desktop in $uniq) {
     $lnkPath = Join-Path $desktop $s.Name
     $lnk = $w.CreateShortcut($lnkPath)
     $lnk.TargetPath = $s.Target
-    $lnk.WorkingDirectory = "d:\AgentProjects\work"
+    $lnk.WorkingDirectory = "d:\AgentProjects\work27"
     $lnk.Description = $s.Desc
     $lnk.Save()
     Write-Host ("Updated: " + $lnkPath)

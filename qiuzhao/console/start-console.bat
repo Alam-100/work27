@@ -2,8 +2,8 @@
 setlocal EnableDelayedExpansion
 chcp 65001 >nul
 REM Production SPA on :8765 (uvicorn --reload for API; frontend needs npm run build or use Dev shortcut)
-cd /d d:\AgentProjects\work
-set QIUZHAO_VAULT=C:\Users\xd\Documents\ObsidianRecovery\my-obsidian-20260921\My_docs
+cd /d d:\AgentProjects\work27
+set QIUZHAO_VAULT=E:\obsidian\My_docs
 set PORT=8765
 set OPEN_URL=http://127.0.0.1:8765/jobs
 

@@ -21,7 +21,7 @@ qiuzhao\console\schedule-events-refresh.ps1
 
 ```powershell
 $action = New-ScheduledTaskAction -Execute "powershell.exe" `
-  -Argument "-NoProfile -ExecutionPolicy Bypass -File `"D:\AgentProjects\work\qiuzhao\console\schedule-events-refresh.ps1`""
+  -Argument "-NoProfile -ExecutionPolicy Bypass -File `"D:\AgentProjects\work27\qiuzhao\console\schedule-events-refresh.ps1`""
 $t1 = New-ScheduledTaskTrigger -Daily -At 8:00am
 $t2 = New-ScheduledTaskTrigger -Daily -At 6:00pm
 Register-ScheduledTask -TaskName "Qiuzhao-XidianEvents" -Action $action -Trigger $t1,$t2 -Description "刷新西电宣讲会/双选会"

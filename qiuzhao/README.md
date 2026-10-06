@@ -7,7 +7,7 @@
 ## 快速开始（推荐）
 
 ```powershell
-cd d:\AgentProjects\work
+cd d:\AgentProjects\work27
 py -3.12 -m pip install -r qiuzhao\scripts\requirements.txt
 cd qiuzhao\web; npm install; npm run build; cd ..\..
 qiuzhao\console\run.ps1

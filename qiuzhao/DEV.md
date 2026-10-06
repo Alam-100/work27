@@ -353,7 +353,16 @@ python qiuzhao\scripts\vault_dual_backup.py -m "简短说明"
 | --- | --- |
 | `E:\obsidian` | 主工作副本（`.git` 可用时在此 commit/push） |
 | `D:\backup\my-obsidian-mirror` | 异盘镜像；**E: git 损坏时自动改走此处**同步 `My_docs` → commit → push |
-| `https://github.com/Alam-100/my-obsidian.git` | 远程真相备份 |
+| `git@github.com:Alam-100/my-obsidian.git` | 远程真相备份（SSH） |
+
+日常只对齐远程（在 Git 根，不是 `My_docs`）：
+
+```powershell
+cd E:\obsidian
+git pull --ff-only
+# 有本地笔记提交后再推；无改动不要 push
+git push
+```
 
 可选：`--force-mirror` 强制走 D:；`--no-repair-e` 推送后不覆盖 E: `.git`；`--skip-push` 仅从远程拉齐镜像。
 
