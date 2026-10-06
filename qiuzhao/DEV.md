@@ -234,6 +234,20 @@ python qiuzhao\scripts\fetch_sma_wiki.py --out agent.json --filter-keywords "Age
 
 ```powershell
 py -3.12 qiuzhao\scripts\fetch_nowcoder_schedule.py --batch 1203,1206,1210 --update-source-links
+```
+
+输出：`qiuzhao/tmp/nowcoder_filtered.json` + `nowcoder_{batch}.json`。字段含 `公司` / `投递链接` / `批次标签` / `招聘计划` / `网申开始|结束`。微信投递链过滤；白名单 + 关键词筛。列表行须再官网深挖 JD。
+
+## fetch_nowcoder_mianshi.py
+
+牛客面经搜索（POST `https://gw-c.nowcoder.com/api/sparta/pc/search`）+ 动态/讨论详情。只出 JSON，不写 vault。
+
+```powershell
+py -3.12 qiuzhao\scripts\fetch_nowcoder_mianshi.py --out qiuzhao\tmp\nowcoder_mianshi.json
+py -3.12 qiuzhao\scripts\fetch_nowcoder_mianshi.py --query "九方智投 Agent 面经" --pages 2
+```
+
+输出：`qiuzhao/tmp/nowcoder_mianshi.json` 的 `hits[]` / `details[]`。入库走 `qiuzhao-mianshi-search`。HTTP 代理用 `HTTP_PROXY`；脚本会丢掉 `ALL_PROXY` 以免 httpx 缺 socks 扩展。
 
 ## fetch_xidian_events.py
 
@@ -248,9 +262,6 @@ py -3.12 qiuzhao\scripts\fetch_xidian_events.py --http-only --out qiuzhao\tmp\xi
 写入 `秋招/10_校园活动/`（`type: qiuzhao-campus-event`）。控制台 `POST /api/events/refresh` 与 `schedule-events-refresh.ps1` 同款。
 
 公众号周报：`04_情报/宣讲会收件箱.md` 或 `_inbox_images/宣讲会/` + 队列意图 `宣讲会补录`。
-```
-
-输出：`qiuzhao/tmp/nowcoder_filtered.json` + `nowcoder_{batch}.json`。字段含 `公司` / `投递链接` / `批次标签` / `招聘计划` / `网申开始|结束`。微信投递链过滤；白名单 + 关键词筛。列表行须再官网深挖 JD。
 
 ## 来源链接库
 
