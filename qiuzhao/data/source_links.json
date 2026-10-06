@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-04",
+  "updated": "2026-10-06",
   "links": [
     {
       "url": "https://campus.sma-wiki.cn/campus/campus_recruit.html?channel=zpdt",
@@ -7,10 +7,10 @@
       "batch": "27秋招",
       "platform": "sma-wiki",
       "status": "有效",
-      "last_checked": "2026-10-04",
-      "note": "牛客侧发现的校招汇总；默认筛 互联网/科技+27届秋招；20261004 raw=10154 AI-Agent筛120；本轮官网深挖新公司见来源日志。20260918 raw=8976 missing=58",
-      "最近检查": "2026-10-04",
-      "核实于": "2026-10-04"
+      "last_checked": "2026-10-06",
+      "note": "牛客侧发现的校招汇总；默认筛 互联网/科技+27届秋招；20261004 raw=10154 AI-Agent筛120；本轮官网深挖新公司见来源日志。20260918 raw=8976 missing=58；20261006 raw=1000 Agent筛8 missing=5，深挖光轮/诺因",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
     },
     {
       "url": "https://www.nowcoder.com/interview/center?entranceType=%E5%AF%BC%E8%88%AA%E6%A0%8F",
@@ -47,10 +47,10 @@
       "batch": "混合",
       "platform": "求职方舟",
       "status": "有效",
-      "last_checked": "2026-10-04",
-      "note": "fetch_fangzhou ok；20261004 关键词 Agent/智能体/大模型应用 limit=30 row_count=30；20260906c row_count=520 raw=4132",
-      "最近检查": "2026-10-04",
-      "核实于": "2026-10-04"
+      "last_checked": "2026-10-06",
+      "note": "fetch_fangzhou ok；20261004 关键词 Agent/智能体/大模型应用 limit=30 row_count=30；20260906c row_count=520 raw=4132；20261006 关键词120行，深挖中移成都/费曼/神州数码",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
     },
     {
       "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=agent",
@@ -58,10 +58,10 @@
       "batch": "27秋招",
       "platform": "OfferStar",
       "status": "有效",
-      "last_checked": "2026-10-04",
-      "note": "20261004 agent筛选114，微信墙113，非微信仅拼多多列表（已有公司不扩）；20260906c agent=69",
-      "最近检查": "2026-10-04",
-      "核实于": "2026-10-04"
+      "last_checked": "2026-10-06",
+      "note": "20261004 agent筛选114，微信墙113，非微信仅拼多多列表（已有公司不扩）；20260906c agent=69；20261006 agent=119 仍几乎全是微信墙",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
     },
     {
       "url": "https://www.offerstar.cn/recruitment?channel=%E6%A0%A1%E6%8B%9B&title=2027&positions=ai",
@@ -111,9 +111,9 @@
       "batch": "27秋招",
       "platform": "牛客",
       "status": "有效",
-      "last_checked": "2026-10-04",
+      "last_checked": "2026-10-06",
       "note": "batch=1210；20261004 raw=399；三批次 filtered=329。20260918 曾深挖中移互联网/中移在线",
-      "最近检查": "2026-10-04",
+      "最近检查": "2026-10-06",
       "核实于": "2026-10-04"
     },
     {
@@ -658,6 +658,61 @@
       "last_checked": "2026-10-04",
       "note": "华为26届本科校招面经，面试 2026-02-10；岗位名未写；接口全文已读",
       "最近检查": "2026-10-04"
+    },
+    {
+      "url": "https://lightwheel.jobs.feishu.cn/referral/position/7687971635076712723/detail?token=MjsxNzg5OTk2MTg3MDc3Ozc2ODI2MDcxMjAzMDIyOTYwMzQ7NzY4Nzk2MTcxOTI1MjQyMDg5MTsx",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "光轮智能",
+      "status": "有效",
+      "last_checked": "2026-10-06",
+      "note": "已入库 AI Agent 工程师（校招）；飞书详情 permalink",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
+    },
+    {
+      "url": "https://job.10086.cn/personal/job/detail.html?id=a5e099d4-cb7d-4512-a076-ddeddb2ab503&typess=1",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "中移成都产业研究院",
+      "status": "有效",
+      "last_checked": "2026-10-06",
+      "note": "已入库 Agent开发工程师；硕士可投；官网截止 2026-10-15；金种子博士岗已剔除",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
+    },
+    {
+      "url": "https://knowinai.jobs.feishu.cn/267533/position/7683834680630298918/detail",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "诺因智能",
+      "status": "有效",
+      "last_checked": "2026-10-06",
+      "note": "已入库具身智能 Agent 算法研究员/工程师；硕士可投；此前列表页无 JD",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
+    },
+    {
+      "url": "https://www.phibotics.cn/careers/JOB-20",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "费曼智核",
+      "status": "有效",
+      "last_checked": "2026-10-06",
+      "note": "已入库 Agentic Self-Improving 算法研究员；校园招聘硕士可投",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
+    },
+    {
+      "url": "https://digitalchina.zhiye.com/campus/detail?jobAdId=7d95c240-31cc-4f26-99d9-a6339671ff8b",
+      "type": "官网",
+      "batch": "27秋招",
+      "platform": "神州数码",
+      "status": "有效",
+      "last_checked": "2026-10-06",
+      "note": "已入库 Agent开发工程师 J23759；北森 /campus/detail permalink；任职写 2025-2026 届需再核实",
+      "最近检查": "2026-10-06",
+      "核实于": "2026-10-06"
     }
   ]
 }
