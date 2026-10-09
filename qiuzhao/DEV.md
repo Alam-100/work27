@@ -77,13 +77,13 @@ qiuzhao\console\create-desktop-shortcut.ps1
 | --- | --- |
 | `page` / `page_size` | 分页；`group=company` 时按**公司**分页 |
 | `group` | `company` 按公司聚拢；空为扁平岗列表 |
-| `scope` | `active`（默认，在招）/ `closed`（已截止）/ `all`；已截止卡可物理在 `02_情报库/_归档/{公司}/`，**不删除** |
+| `scope` | `active`（默认，在招）/ `closed`（已截止）/ `all`；已截止卡可物理在 `02_情报库/_归档/{公司}/`，**不删除**。画像不匹配（具身等）在 `_archived_具身智能/`，**永不计入有效岗 / 主清单** |
 | `sort` | `deadline_then_score`（默认：剩余天数升序，再匹配分）/ `score_desc` / `deadline_asc` |
 | 筛选 | `q` `plan` `tier` `role_family` `hiring_status` `apply_priority` `deadline` `min_score` |
 
 返回 `total` / `pages` / `stats`：`hiring`（在招岗数）/ `closed`（已截止岗数，含 `_归档`）/ `followed` / `urgent`（在招且本周截止）/ `tiers`（在招档次）。条目可带 `archived`。公司行 `earliest_deadline` 在招只看剩余≥0 天，避免过期岗把公司顶到最前。
 
-批量归档：`vault_io.archive_closed_intel()`（按截止日/状态扫描 → 标「已截止」→ 挪到 `_归档/{公司}/`）。`list_intel()` 默认跳过归档，不占在招库存。
+批量归档：`vault_io.archive_closed_intel()`（按截止日/状态扫描 → 标「已截止」→ 挪到 `_归档/{公司}/`）。`list_intel()` 默认跳过 `_归档/`；**永远跳过** `_archived_*/`（具身等不匹配）。`archive_mismatch_company()` 把整司移入 `_archived_具身智能/`；`archive_mismatch_job()` 只移单卡（公司还有对口 Agent/LLM 岗时）。
 
 公司多源投递：`vault_io.upsert_company_apply_channel(公司, url=..., code=...)` 写入 `_公司.md` 的 `投递渠道`；列表/详情返回 `apply_channels` / `referral_url` / `referral_code` / `delivery_record_url`；跟进投递预填进度卡内推码与「投递记录查询」。`set_company_delivery_record_url` 专门写入官网申请进度页。
 
@@ -97,7 +97,7 @@ qiuzhao\console\create-desktop-shortcut.ps1
 
 | 层 | 路径 | type | 用途 |
 | --- | --- | --- | --- |
-| 情报 | `秋招/02_情报库/` | `qiuzhao-intel-job` | JD、链接、匹配（助手）；已截止可进 `_归档/` |
+| 情报 | `秋招/02_情报库/` | `qiuzhao-intel-job` | JD、链接、匹配（助手）；已截止可进 `_归档/`；具身等不匹配进 `_archived_具身智能/` |
 | 公司概况 | `秋招/02_情报库/{公司}/_公司.md` | `qiuzhao-intel-company` | 校招门户、限投、**投递渠道**（官网/HR内推/员工内推，可多条） |
 | 校园活动 | `秋招/10_校园活动/` | `qiuzhao-campus-event` | 宣讲会/双选会/组团招聘 |
 | 进度 | `秋招/05_投递进度/` | `qiuzhao-progress` | 状态、时间（用户·控制台） |
@@ -146,7 +146,7 @@ flowchart TB
 
 **页面类型**：`单岗` / `汇总表` / `列表待深挖` / `二维码墙`（见 Skill）。
 
-**入库质量门（强制）**：无实质 JD 不入库；微信公众号/扫码墙投递链丢弃；汇总表/牛客日程行本身不写情报卡，必须经官网深挖拿到 JD；截止未知不编造；抓取失败不写空笔记；写入前须 `clean_jd_text.py` 去重标题/元数据/重复 JD 段；官网 0 岗或过期届别 FAQ 且无当期 JD → 删卡不留占位；**提前批与正式批可分卡并存**；**博士硬门槛不入库**（画像硕士；`jd_edu_gate.py`：只要博士则剔除；硕士或博士 / 硕士及以上 / 博士优先仍收）。
+**入库质量门（强制）**：无实质 JD 不入库；微信公众号/扫码墙投递链丢弃；汇总表/牛客日程行本身不写情报卡，必须经官网深挖拿到 JD；截止未知不编造；抓取失败不写空笔记；写入前须 `clean_jd_text.py` 去重标题/元数据/重复 JD 段；官网 0 岗或过期届别 FAQ 且无当期 JD → 删卡不留占位；**提前批与正式批可分卡并存**；**博士硬门槛不入库**（画像硕士；`jd_edu_gate.py`：只要博士则剔除；硕士或博士 / 硕士及以上 / 博士优先仍收）；**具身智能 / 机器人控制 / VLA / 仿真操作 / 末端执行不入库**（`jd_embodied_gate.py`；纯 LLM Agent / RAG / 智能体平台仍收；已入库移 `_archived_具身智能/`，不删）。
 
 助手必须：跑质量门；同来源 URL 去重更新；**禁止**要求用户把裸 URL 改成 `类型: 岗位 \| url:` 硬编码行。
 

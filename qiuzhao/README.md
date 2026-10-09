@@ -84,7 +84,7 @@ py -3.12 qiuzhao\scripts\fetch_fangzhou.py --out fangzhou.json --limit 30
 py -3.12 qiuzhao\scripts\fetch_nowcoder_schedule.py --batch 1203,1206,1210 --update-source-links
 ```
 
-质量门：无 JD 不入库；微信墙丢弃；不要实习岗；博士硬门槛（硕士不可投）直接剔除。
+质量门：无 JD 不入库；微信墙丢弃；不要实习岗；博士硬门槛（硕士不可投）直接剔除；具身智能 / 机器人控制 / VLA 不入库（已入库进 `_archived_具身智能/`）。
 
 ## Vault IO
 

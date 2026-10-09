@@ -236,6 +236,8 @@ def intel_dir(root: Path | None = None) -> Path:
 
 
 INTEL_ARCHIVE_DIRNAME = "_归档"
+INTEL_MISMATCH_PREFIX = "_archived_"
+INTEL_EMBODIED_ARCHIVE_KIND = "具身智能"
 
 
 def intel_archive_dir(root: Path | None = None) -> Path:
@@ -243,12 +245,34 @@ def intel_archive_dir(root: Path | None = None) -> Path:
     return intel_dir(root) / INTEL_ARCHIVE_DIRNAME
 
 
-def _is_under_intel_archive(path: Path, root: Path | None = None) -> bool:
+def intel_mismatch_archive_dir(
+    kind: str = INTEL_EMBODIED_ARCHIVE_KIND,
+    root: Path | None = None,
+) -> Path:
+    """Mismatch jobs (e.g. embodied) live under 02_情报库/_archived_{kind}/{公司}/."""
+    safe = re.sub(r'[\\/:*?"<>|]', "-", str(kind or "").strip()) or INTEL_EMBODIED_ARCHIVE_KIND
+    return intel_dir(root) / f"{INTEL_MISMATCH_PREFIX}{safe}"
+
+
+def _intel_rel_parts(path: Path, root: Path | None = None) -> tuple[str, ...]:
     try:
         rel = path.resolve().relative_to(intel_dir(root).resolve())
     except ValueError:
-        return False
-    return INTEL_ARCHIVE_DIRNAME in rel.parts
+        return ()
+    return rel.parts
+
+
+def _is_closed_archive(path: Path, root: Path | None = None) -> bool:
+    return INTEL_ARCHIVE_DIRNAME in _intel_rel_parts(path, root)
+
+
+def _is_mismatch_archive(path: Path, root: Path | None = None) -> bool:
+    return any(part.startswith(INTEL_MISMATCH_PREFIX) for part in _intel_rel_parts(path, root))
+
+
+def _is_under_intel_archive(path: Path, root: Path | None = None) -> bool:
+    """True for deadline ``_归档`` or mismatch ``_archived_*`` (not active inventory)."""
+    return _is_closed_archive(path, root) or _is_mismatch_archive(path, root)
 
 
 def study_dir(root: Path | None = None) -> Path:
@@ -638,8 +662,11 @@ def _list_typed(
     cards: list[NoteCard] = []
     paths = directory.rglob("*.md") if recursive else directory.glob("*.md")
     archive_name = INTEL_ARCHIVE_DIRNAME
+    mismatch_prefix = INTEL_MISMATCH_PREFIX
     for path in sorted(paths):
         if path.name.startswith("_"):
+            continue
+        if recursive and any(part.startswith(mismatch_prefix) for part in path.parts):
             continue
         if recursive and not include_archived and archive_name in path.parts:
             continue
@@ -664,8 +691,9 @@ def list_intel(
 ) -> list[NoteCard]:
     """List job intel cards under 02_情报库 (supports company subfolders).
 
-    By default skips ``_归档/`` so closed cards no longer occupy active inventory.
-    Pass ``include_archived=True`` for closed-tab / full scans.
+    Always skips ``_archived_*/`` (mismatch parks such as embodied).
+    By default also skips ``_归档/`` so closed cards no longer occupy active inventory.
+    Pass ``include_archived=True`` for closed-tab / full scans of deadline archives.
     """
     return _list_typed(
         intel_dir(root),
@@ -705,8 +733,9 @@ def find_intel_path(stem: str, root: Path | None = None) -> Path | None:
         return matches[0]
 
     def rank(p: Path) -> tuple:
-        archived = 1 if _is_under_intel_archive(p, root) else 0
-        return (archived, -len(p.parts), str(p))
+        mismatch = 2 if _is_mismatch_archive(p, root) else 0
+        closed = 1 if _is_closed_archive(p, root) else 0
+        return (mismatch + closed, -len(p.parts), str(p))
 
     matches.sort(key=rank)
     return matches[0]
@@ -1594,6 +1623,76 @@ def archive_progress(stem: str, root: Path | None = None) -> Path:
 def is_intel_archived(card_or_path: NoteCard | Path, root: Path | None = None) -> bool:
     path = card_or_path.path if isinstance(card_or_path, NoteCard) else card_or_path
     return _is_under_intel_archive(path, root)
+
+
+def ensure_mismatch_archive_readme(
+    kind: str = INTEL_EMBODIED_ARCHIVE_KIND,
+    root: Path | None = None,
+) -> Path:
+    """Ensure the mismatch archive folder has a README (not an active job card)."""
+    dest = intel_mismatch_archive_dir(kind, root)
+    dest.mkdir(parents=True, exist_ok=True)
+    path = dest / "README.md"
+    if path.is_file():
+        return path
+    body = (
+        f"# {kind}归档（非有效投递条目）\n\n"
+        "本目录集中存放画像不匹配的具身智能 / 机器人控制 / 仿真·VLA / "
+        "实体交互算法岗卡。\n\n"
+        "- **不占有效岗位**：控制台与 `list_intel()` 永不计入本目录。\n"
+        "- **不进主清单**：与已截止 `_归档/` 分开，不是「已截止」语义。\n"
+        "- **不删正文**：岗卡与 `_公司.md` 原样保留，仅换路径。\n"
+        "- 公司下若只剩具身岗，整司目录移入；若还有对口 Agent / LLM / RAG 岗，只移具身岗卡。\n"
+        "- 后续收集时直接滤掉同类岗位，不再写入有效情报库。\n"
+    )
+    path.write_text(body, encoding="utf-8", newline="\n")
+    return path
+
+
+def archive_mismatch_company(
+    company: str,
+    *,
+    kind: str = INTEL_EMBODIED_ARCHIVE_KIND,
+    root: Path | None = None,
+) -> Path:
+    """Move a whole company folder under ``_archived_{kind}/``; keep files, no delete."""
+    src = intel_company_dir(company, root)
+    if not src.is_dir():
+        raise FileNotFoundError(company)
+    if _is_mismatch_archive(src, root):
+        return src
+    dest_parent = intel_mismatch_archive_dir(kind, root)
+    dest_parent.mkdir(parents=True, exist_ok=True)
+    ensure_mismatch_archive_readme(kind, root)
+    dest = dest_parent / src.name
+    if dest.exists():
+        raise FileExistsError(str(dest))
+    src.rename(dest)
+    return dest
+
+
+def archive_mismatch_job(
+    stem: str,
+    *,
+    kind: str = INTEL_EMBODIED_ARCHIVE_KIND,
+    root: Path | None = None,
+) -> Path:
+    """Move a single mismatch job card under ``_archived_{kind}/{公司}/``; keep file."""
+    card = get_intel(stem, root)
+    if not card:
+        raise FileNotFoundError(stem)
+    if _is_mismatch_archive(card.path, root):
+        return card.path
+    company = str(card.meta.get("公司") or "").strip() or card.path.parent.name
+    safe = re.sub(r'[\\/:*?"<>|]', "-", company) or "_未知公司"
+    dest_dir = intel_mismatch_archive_dir(kind, root) / safe
+    dest_dir.mkdir(parents=True, exist_ok=True)
+    ensure_mismatch_archive_readme(kind, root)
+    dest = dest_dir / card.path.name
+    if dest.exists():
+        raise FileExistsError(str(dest))
+    card.path.rename(dest)
+    return dest
 
 
 def archive_intel(stem: str, root: Path | None = None) -> Path:

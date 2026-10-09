@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07",
+  "updated": "2026-10-09",
   "links": [
     {
       "url": "https://campus.sma-wiki.cn/campus/campus_recruit.html?channel=zpdt",
@@ -963,6 +963,50 @@
       "last_checked": "2026-10-07",
       "note": "2026-10-07 B 后端+Agent",
       "最近检查": "2026-10-07"
+    },
+    {
+      "url": "https://app.21jingji.com/recruitment/#/campus/85",
+      "type": "岗位详情",
+      "batch": "27秋招",
+      "platform": "官网",
+      "status": "有效",
+      "last_checked": "2026-10-09",
+      "note": "已入库 南方财经-AI智能体开发工程师；硕士可投",
+      "最近检查": "2026-10-09",
+      "核实于": "2026-10-09"
+    },
+    {
+      "url": "https://app.21jingji.com/recruitment/#/campus/71",
+      "type": "岗位详情",
+      "batch": "27秋招",
+      "platform": "官网",
+      "status": "有效",
+      "last_checked": "2026-10-09",
+      "note": "已入库 南方财经-全栈工程师-AI应用方向；硕士可投",
+      "最近检查": "2026-10-09",
+      "核实于": "2026-10-09"
+    },
+    {
+      "url": "https://app.21jingji.com/recruitment/#/campus/96",
+      "type": "岗位详情",
+      "batch": "27秋招",
+      "platform": "官网",
+      "status": "有效",
+      "last_checked": "2026-10-09",
+      "note": "已入库 南方财经-全栈工程师-AI-Native智能投顾；硕士可投",
+      "最近检查": "2026-10-09",
+      "核实于": "2026-10-09"
+    },
+    {
+      "url": "https://thunisoft.zhiye.com/campus/detail?jobAdId=c186350e-8a85-44e5-ab0b-d43530a00dd6",
+      "type": "岗位详情",
+      "batch": "27秋招",
+      "platform": "官网",
+      "status": "有效",
+      "last_checked": "2026-10-09",
+      "note": "已入库 华宇信息-AI开发工程师；硕士可投",
+      "最近检查": "2026-10-09",
+      "核实于": "2026-10-09"
     }
   ]
 }

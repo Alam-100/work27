@@ -254,7 +254,11 @@ def fetch_sma_wiki(
 def list_vault_companies(vault_intel: Path) -> set[str]:
     if not vault_intel.is_dir():
         return set()
-    return {d.name for d in vault_intel.iterdir() if d.is_dir()}
+    return {
+        d.name
+        for d in vault_intel.iterdir()
+        if d.is_dir() and not d.name.startswith("_")
+    }
 
 
 def company_in_vault(name: str, vault: set[str]) -> str | None:

@@ -10,6 +10,7 @@ advertisementId 较大的一条（去重旧广告）。
 
 用户点名昇腾/AI Infra 时加 `--include-infra`（见 INFRA_INTENT_NAMES）。
 博士硬门槛（硕士不可投）走 `jd_edu_gate.is_phd_only`，不入库。
+具身智能 / 机器人控制 / VLA 走 `jd_embodied_gate.is_embodied_mismatch`，不入库。
 """
 from __future__ import annotations
 
@@ -26,6 +27,7 @@ _SCRIPTS_DIR = Path(__file__).resolve().parent
 if str(_SCRIPTS_DIR) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS_DIR))
 from jd_edu_gate import is_phd_only  # noqa: E402
+from jd_embodied_gate import is_embodied_mismatch  # noqa: E402
 
 API = "https://apigw-dgg-b0.huawei.com/api/apig/channelhw/recruitmentPosition/pub"
 CAMPUS_LIST = (
@@ -178,6 +180,12 @@ def harvest_job(row: dict, *, include_infra: bool = False) -> dict:
             phd, phd_reason = is_phd_only(name, f"{resp_txt}\n{demand_txt}")
             if phd:
                 keep, reason = False, f"phd-only:{phd_reason}"
+            else:
+                embodied, emb_reason = is_embodied_mismatch(
+                    name, f"{resp_txt}\n{demand_txt}"
+                )
+                if embodied:
+                    keep, reason = False, f"embodied:{emb_reason}"
         intents[name] = {
             "positionIntentionId": item.get("positionIntentionId"),
             "jobResponsibilities": resp_txt,
