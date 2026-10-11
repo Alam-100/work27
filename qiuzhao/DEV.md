@@ -238,6 +238,19 @@ py -3.12 qiuzhao\scripts\fetch_nowcoder_schedule.py --batch 1203,1206,1210 --upd
 
 输出：`qiuzhao/tmp/nowcoder_filtered.json` + `nowcoder_{batch}.json`。字段含 `公司` / `投递链接` / `批次标签` / `招聘计划` / `网申开始|结束`。微信投递链过滤；白名单 + 关键词筛。列表行须再官网深挖 JD。
 
+## ingest_bank_campus_20261011.py
+
+银行（央国企）仍开放校招技术/AI 岗一次性入库脚本（2026-10-11）。写入前过 `jd_edu_gate` / `jd_embodied_gate` / `clean_jd`，经 `vault_io` 写岗卡与公司卡；**不**建投递进度。
+
+```powershell
+$env:QIUZHAO_VAULT="E:\obsidian\My_docs"
+# 若系统开了 SOCKS 代理且未装 socksio，先清空代理再抓取
+$env:HTTP_PROXY=""; $env:HTTPS_PROXY=""; $env:ALL_PROXY=""
+py -3.12 qiuzhao\scripts\ingest_bank_campus_20261011.py
+```
+
+口径：仍报名 + 实质 JD + 技术/AI 向；跳过微信墙、纯营销/柜员、已饱和银行重复岗、博士硬门槛、具身。
+
 ## fetch_nowcoder_mianshi.py
 
 牛客面经搜索（POST `https://gw-c.nowcoder.com/api/sparta/pc/search`）+ 动态/讨论详情。只出 JSON，不写 vault。
