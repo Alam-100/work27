@@ -99,6 +99,26 @@ DEFAULT_QUERIES: list[dict[str, str]] = [
     {"company": "深信服", "query": "深信服 Agent 面经"},
     {"company": "腾讯", "query": "腾讯 Agent 开发 面经 秋招"},
     {"company": "拼多多集团", "query": "拼多多 Agent 面经"},
+    {"company": "拼多多集团", "query": "拼多多 算法 面经 秋招"},
+    {"company": "拼多多集团", "query": "拼多多 算法 一面"},
+    {"company": "拼多多集团", "query": "拼多多 算法 二面"},
+    {"company": "拼多多集团", "query": "拼多多 算法 三面"},
+    {"company": "拼多多集团", "query": "pdd 算法 面经"},
+    {"company": "拼多多集团", "query": "拼多多 大模型 算法 面经"},
+    {"company": "拼多多集团", "query": "拼多多 LLM 面经"},
+    {"company": "拼多多集团", "query": "拼多多 NLP 面经"},
+    {"company": "拼多多集团", "query": "拼多多 智能体 面经"},
+    {"company": "拼多多集团", "query": "pdd agent 面经"},
+    {"company": "顺丰科技", "query": "顺丰科技 AI开发 面经"},
+    {"company": "东方有线", "query": "东方有线 AI 面经 秋招"},
+    {"company": "税友", "query": "税友 算法 面经 RAG"},
+    {"company": "贝壳", "query": "贝壳 Agent 一面"},
+    {"company": "FunPlus", "query": "FunPlus 多模态 面经"},
+    {"company": "京东", "query": "京东 Agent 一面 秋招"},
+    {"company": "中兴通讯", "query": "中兴 AI算法 智能体 面经"},
+    {"company": "广联达", "query": "广联达 AI 一面"},
+    {"company": "携程", "query": "携程 LLM 算法 面经"},
+    {"company": "锐捷网络", "query": "锐捷 AI开发 一面"},
     {"company": "小米", "query": "小米 Agent 工程师 面经"},
     {"company": "东方有线", "query": "东方有线 AI 面经"},
     {"company": "鹰角网络", "query": "鹰角 Agent 面经"},
@@ -164,7 +184,23 @@ def strip_html(text: str) -> str:
 
 
 def rec_fields(rec: dict[str, Any], query_company: str) -> dict[str, Any]:
+    if not isinstance(rec, dict):
+        return {
+            "query_company": query_company,
+            "title": "",
+            "uuid": "",
+            "content_id": "",
+            "content_type": None,
+            "created_ms": "",
+            "created_bj": "",
+            "snippet": "",
+            "url": "",
+            "mismatch": True,
+            "job_ok": False,
+        }
     d = rec.get("data") or {}
+    if not isinstance(d, dict):
+        d = {}
     md = d.get("momentData") or {}
     ie = d.get("interviewExp") or {}
     title = rec.get("title") or md.get("title") or ie.get("title") or d.get("title") or ""
@@ -254,17 +290,23 @@ def main() -> int:
     ap.add_argument("--pages", type=int, default=1)
     ap.add_argument("--sleep", type=float, default=0.35)
     ap.add_argument("--start", default="2026-08-20")
-    ap.add_argument("--end", default="2026-10-07")
+    ap.add_argument("--end", default="2026-10-14")
+    ap.add_argument(
+        "--queries-file",
+        default="",
+        help="JSON list of {company, query}; overrides default list when set",
+    )
     ap.add_argument("--fetch-older", action="store_true", help="also fetch 2026 posts outside window")
     ap.add_argument("--max-fetch", type=int, default=80)
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
-    queries = (
-        [{"company": args.company or "adhoc", "query": args.query}]
-        if args.query
-        else DEFAULT_QUERIES
-    )
+    if args.query:
+        queries = [{"company": args.company or "adhoc", "query": args.query}]
+    elif args.queries_file:
+        queries = json.loads(Path(args.queries_file).read_text(encoding="utf-8"))
+    else:
+        queries = DEFAULT_QUERIES
     client = make_client()
     hits: list[dict[str, Any]] = []
     seen: set[str] = set()

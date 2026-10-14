@@ -258,6 +258,7 @@ py -3.12 qiuzhao\scripts\ingest_bank_campus_20261011.py
 ```powershell
 py -3.12 qiuzhao\scripts\fetch_nowcoder_mianshi.py --out qiuzhao\tmp\nowcoder_mianshi.json
 py -3.12 qiuzhao\scripts\fetch_nowcoder_mianshi.py --query "九方智投 Agent 面经" --pages 2
+py -3.12 qiuzhao\scripts\fetch_nowcoder_mianshi.py --queries-file qiuzhao\tmp\nowcoder_queries_20261014.json --end 2026-10-14 --fetch-older
 ```
 
 输出：`qiuzhao/tmp/nowcoder_mianshi.json` 的 `hits[]` / `details[]`。入库走 `qiuzhao-mianshi-search`。HTTP 代理用 `HTTP_PROXY`；脚本会丢掉 `ALL_PROXY` 以免 httpx 缺 socks 扩展。
