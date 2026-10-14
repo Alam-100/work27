@@ -1,3 +1,4 @@
+- 2026-10-14: Obsidian 收尾同步 — 投递进度更新/新卡/归档 + 主路径具身卡去重；SSOT/README 误删已恢复；HTTPS push 到 `7d07083`
 - 2026-10-14: 面经搜寻 — 按投递中岗加厚拼多多算法/Agent、顺丰、京东、中兴、携程；`fetch_nowcoder_mianshi.py` 支持 `--queries-file` 与窗口至 10-14
 - 2026-10-11: 银行秋招仍开放技术/AI 岗 — 新入库兴业/光大/上海/北京/杭州/四川共 13 岗；脚本 `ingest_bank_campus_20261011.py`；未加入投递表
 - 2026-10-09: 具身智能直接滤掉 — `jd_embodied_gate.py` + `_archived_具身智能/`；控制台不计有效岗；续收南方财经 ×3 / 华宇信息 AI 开发
@@ -21,6 +22,11 @@
 # Changelog
 
 ## 2026-10-14
+
+### Obsidian 收尾同步
+
+- `E:\obsidian`：投递进度状态更新与新卡、主路径具身卡去重；SSOT/README 误删已恢复
+- 远程 `main` HEAD `7d07083`（SSH 不通时经 HTTPS push）；D 盘镜像已对齐
 
 ### 面经搜寻（流程中岗 + 拼多多算法）
 
