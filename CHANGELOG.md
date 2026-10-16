@@ -1,3 +1,4 @@
+- 2026-10-16: 中车株洲所面经 — 投递表「中车-AI开发工程师」无 AI 真帖；近岗 6 题写入 Obsidian；`source_links.json` 登记 3 篇牛客与 1 条社招 JD
 - 2026-10-16: 收集后必须推远程 — 面经/秋招笔记写完先 pull --ff-only，只提交本轮笔记再 push；SSH 失败用 HTTPS 且不改 origin
 - 2026-10-16: 面经搜寻 — 流程中岗补 MySQL/Redis/网络/OS 情景题（度小满、字节、携程、百度）；`fetch_nowcoder_mianshi.py` 默认窗口结束日改为 2026-10-16
 - 2026-10-14: Obsidian 收尾同步 — 投递进度更新/新卡/归档 + 主路径具身卡去重；SSOT/README 误删已恢复；HTTPS push 到 `7d07083`
@@ -24,6 +25,12 @@
 # Changelog
 
 ## 2026-10-16
+
+### 中车株洲所面经
+
+- 投递表公司字段是「中车」、岗位 AI开发工程师；情报库无岗卡
+- 公开近岗 6 题写入 Obsidian，不把机械/嵌入式/工艺岗算进 AI 岗
+- `source_links.json` 增加 3 篇牛客与 1 条社招 JD。未改 `fetch_nowcoder_mianshi.py`
 
 ### 收集后必须推远程
 
