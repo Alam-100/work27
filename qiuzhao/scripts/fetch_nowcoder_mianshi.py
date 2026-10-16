@@ -290,7 +290,7 @@ def main() -> int:
     ap.add_argument("--pages", type=int, default=1)
     ap.add_argument("--sleep", type=float, default=0.35)
     ap.add_argument("--start", default="2026-08-20")
-    ap.add_argument("--end", default="2026-10-14")
+    ap.add_argument("--end", default="2026-10-16")
     ap.add_argument(
         "--queries-file",
         default="",
