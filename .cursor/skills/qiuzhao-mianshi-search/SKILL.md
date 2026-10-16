@@ -183,7 +183,7 @@ description: >-
 - 本地题库/复盘已优先利用；外网受阻已如实说明。
 - 高频结论来自多独立来源；清洗/分类/去重已做。
 - 产出在 `08_面试准备/{公司}-{岗位}/`；题库仅问题列表；手撕在知识点节。
-- **本机双重备份已执行**（见下节）。云端改按 `qiuzhao-assistant`「云端仓库与笔记真源」写入 my-obsidian。
+- **本机已按「收集后必须推远程」推到 origin main**（见下节）。云端同样直接推 main，不改为只 commit 或只开 PR。
 
 ## 双重备份（强制 · 防 E 盘再损坏）
 
@@ -198,12 +198,14 @@ description: >-
 | D 盘异盘镜像 | `D:\backup\my-obsidian-mirror` |
 | 一键脚本 | `qiuzhao/scripts/vault_dual_backup.py` |
 
-日常只对齐远程时，在 `E:\obsidian` 执行 `git pull --ff-only`。有本地笔记提交后再 `git push`，或跑下面的双重备份脚本。不要强推。Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidian`。
+Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidian`。
 
-**每次**向 vault 写入干净内容后立刻：
+**每次面经/秋招笔记写入完成后必须推远程**（长期规则，不能只 commit）：
 
-1. `python qiuzhao/scripts/vault_dual_backup.py -m "简短说明"`  
-   （E: `.git` 可用则本地 commit/push；**损坏则自动改走 D: 镜像**同步可读树 → push → 尝试修复 E: `.git`）
-2. 若本轮无本地未提交改动、只需对齐镜像：`python qiuzhao/scripts/vault_dual_backup.py --skip-push`
-3. 禁止只改 E 盘不推送；禁止把未校验的乱码文件推上 GitHub。
-4. **适用范围**：面经入库、情报岗卡、来源日志、口述题答、校园活动等**一切** vault 写入（不限本 Skill）。
+1. 在 `E:\obsidian`：`git pull --ff-only`。有冲突就停下报告。禁止 force push、hard reset、改 git config。
+2. 只 `git add` 本轮笔记路径再提交。禁止 `git add -A`。不要纳入无关脏改动、投递进度脏改动、误删的 README/SSOT。
+3. `git push origin main`。SSH 失败时不改 origin URL，改推 `https://github.com/Alam-100/my-obsidian.git` 的 `HEAD:main`，然后 `git fetch origin`。
+4. D 盘镜像快进到同一 HEAD：`python qiuzhao/scripts/vault_dual_backup.py --skip-push`（或镜像内 HTTPS 快进）。
+5. 本轮若改了 work27 的脚本、skill 或日志，work27 同样 pull --ff-only、只提交本轮文件、再普通 push。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。
+6. 不要用 `vault_dual_backup.py` 的整树 `git add -A` 代替第 2 步。E: git 损坏时才用它走 D: 镜像。禁止把未校验乱码推上 GitHub。
+7. **适用范围**：面经入库、情报岗卡、来源日志、口述题答、校园活动等一切 vault 写入（不限本 Skill）。

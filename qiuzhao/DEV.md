@@ -19,7 +19,7 @@
 - 环境同时克隆 **work27** 与 **my-obsidian**。只配环境、对话不把 work27 当工作区，技能不会生效；环境里没有 my-obsidian，就写不进 Obsidian 远程。
 - 笔记写入 my-obsidian 里已有的 `秋招/`（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停。
 - 笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
-- 用户明确说可以直接推 my-obsidian 的 main 时才推 main；否则开 PR。禁止强推。本机仍走下文 `vault_dual_backup.py`；云端不要用它绕过这条边界。
+- 收集完面经/秋招笔记后必须推 `origin main`（先 `pull --ff-only`，只提交本轮笔记，普通 push）。禁止只 commit 不 push，禁止强推。SSH 失败用 HTTPS 且不改 origin URL，随后 `git fetch origin`。本机收尾见下文双重备份。
 
 可粘贴到 Cursor User Rules（管所有对话；本仓库 skill 只在工作区能读到 work27 时生效）：
 
@@ -28,7 +28,7 @@
 对话主仓库只选 Alam-100/work27，这样才会加载这些 skill 和脚本。
 环境里同时放入 work27 与 my-obsidian。只选环境、对话不把 work27 当工作区，技能不会生效。
 笔记正文写入 my-obsidian 里已有的「秋招/」相对路径，不另起目录，不把 vault 历史库复制进 work 当第二真源。
-work27 只改脚本、source_links、修改日志。未明确允许时，不要直接推 my-obsidian 的 main，按保护规则开 PR，禁止强推。
+work27 只改脚本、source_links、修改日志。收集完面经/秋招笔记后必须直接推 my-obsidian 的 origin main（先 pull --ff-only，只提交本轮笔记），禁止强推。SSH 失败用 HTTPS，不改 origin URL。
 ```
 
 ### 启动
@@ -368,28 +368,28 @@ python qiuzhao\scripts\export_ics.py
 
 ## vault_dual_backup.py（强制 · 防 E 盘损坏）
 
-E: 机械盘随时可能坏。**任何** vault 干净写入后必须推远程：
-
-```powershell
-python qiuzhao\scripts\vault_dual_backup.py -m "简短说明"
-```
-
-| 路径 | 角色 |
-| --- | --- |
-| `E:\obsidian` | 主工作副本（`.git` 可用时在此 commit/push） |
-| `D:\backup\my-obsidian-mirror` | 异盘镜像；**E: git 损坏时自动改走此处**同步 `My_docs` → commit → push |
-| `git@github.com:Alam-100/my-obsidian.git` | 远程真相备份（SSH） |
-
-日常只对齐远程（在 Git 根，不是 `My_docs`）：
+E: 机械盘随时可能坏。**收集写入完成后必须推远程**，不能只 commit：
 
 ```powershell
 cd E:\obsidian
 git pull --ff-only
-# 有本地笔记提交后再推；无改动不要 push
-git push
+# 只 git add 本轮笔记路径，禁止 git add -A（勿带上投递进度脏改动、误删的 README/SSOT）
+git commit -m "本轮笔记说明"
+git push origin main
+# SSH 失败时不改 origin：git push https://github.com/Alam-100/my-obsidian.git HEAD:main
+# 然后 git fetch origin
+# D: 镜像快进：python qiuzhao\scripts\vault_dual_backup.py --skip-push
 ```
 
-可选：`--force-mirror` 强制走 D:；`--no-repair-e` 推送后不覆盖 E: `.git`；`--skip-push` 仅从远程拉齐镜像。
+work27 若本轮改了脚本/skill/日志，同样 `pull --ff-only` 后只提交这些文件，再 `git push origin main`。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。禁止 force push、hard reset、改 git config。有冲突就停。
+
+| 路径 | 角色 |
+| --- | --- |
+| `E:\obsidian` | 主工作副本（`.git` 可用时在此只提交本轮笔记并 push） |
+| `D:\backup\my-obsidian-mirror` | 异盘镜像；推完后 `--skip-push` 快进到同一 HEAD。**E: git 损坏时**才用脚本同步 `My_docs` → commit → push |
+| `git@github.com:Alam-100/my-obsidian.git` | 远程真相备份（SSH；失败用 HTTPS，不改 origin URL） |
+
+`vault_dual_backup.py` 内部 `git add -A`，不能代替上面的选择性提交。可选：`--force-mirror` 强制走 D:；`--no-repair-e` 推送后不覆盖 E: `.git`；`--skip-push` 仅从远程拉齐镜像。
 
 ## 情报可靠性约定
 

@@ -30,7 +30,7 @@ description: >-
 - 根目录：`秋招/`
 - Vault IO：`qiuzhao/scripts/vault_io.py`（控制台与助手共用）
 - 改库后：更新 `更新于`；在 `秋招/04_情报/来源日志.md` 与工作区 `CHANGELOG.md` 记一笔
-- **本机双重备份（强制）**：凡写入 vault 干净内容后，必须立刻跑 `python qiuzhao/scripts/vault_dual_backup.py -m "简短说明"` 把干净部分推到 GitHub，并刷新 D 盘镜像。E 盘随时可能损坏；禁止只改 E: 不推远程。详见文末「双重备份」。云端见下节。
+- **本机双重备份（强制）**：面经/秋招笔记写入完成后必须推远程，不能只 commit。先 `pull --ff-only`，只提交本轮笔记，再普通 `push` 到 `origin main`，并让 D 盘镜像快进到同一 HEAD。禁止 `git add -A`、force push、hard reset、改 git config。详见文末「双重备份」。云端见下节。
 - 职责总览：`秋招/文件夹与职责说明.md`
 
 ## 云端仓库与笔记真源（强制）
@@ -41,7 +41,7 @@ description: >-
 - **环境**：虚拟机里同时克隆 **work27** 与 **my-obsidian**。只配环境、对话却不把 work27 当工作区，技能不会生效；只选 work27、环境里没有 my-obsidian，就写不进 Obsidian 远程。
 - **笔记落点**：写入 my-obsidian 克隆里已经存在的 `秋招/` 相对路径（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停并说明。
 - **分工**：笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
-- **推送**：用户明确说可以直接推 my-obsidian 的 main 时才推 main；否则按该仓库保护规则开 PR。禁止强推。本机备份仍走文末「双重备份」；云端不要用该脚本绕过这条推送边界。
+- **推送（长期）**：每次收集完面经/秋招笔记都直接推 `origin main`，保持本地与远程同步。先 `pull --ff-only`，只提交本轮笔记，再普通 push。禁止只 commit 不 push，禁止 force push。SSH 失败时用 HTTPS 推送且不改 origin URL，随后 `git fetch origin`。本机收尾见文末「双重备份」。
 
 ## 目录约定（分层）
 
@@ -362,14 +362,16 @@ Bases：`秋招/01_看板/秋招投递.base` → 只过滤 `05_投递进度`。
 | D 盘异盘镜像 | `D:\backup\my-obsidian-mirror` |
 | 脚本 | `qiuzhao/scripts/vault_dual_backup.py` |
 
-日常只对齐远程时，在 `E:\obsidian` 执行 `git pull --ff-only`。有本地笔记提交后再 `git push`，或跑下面的双重备份脚本。不要强推。Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidian`。
+Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidian`。
 
-**每次**写入 vault 后立刻：
+**每次收集完面经/秋招笔记必须推远程**（长期规则，不能只 commit）：
 
-1. `python qiuzhao/scripts/vault_dual_backup.py -m "简短说明"`
-2. 脚本行为：E: `.git` 可用则在此 commit/push；**若 E: git 损坏则自动改走 D: 镜像**同步可读工作树 → commit → push → 尝试用镜像 `.git` 修复 E:
-3. 禁止只改 E: 不推送；禁止把未校验乱码文件推上 GitHub
-4. 工作区 `qiuzhao/` 代码改动另按用户规则 commit；若已配置 remote 则一并 push
+1. 在 `E:\obsidian`：`git pull --ff-only`。有冲突就停下报告，不要 force push、hard reset、改 git config。
+2. 只 `git add` 本轮笔记路径再提交。禁止 `git add -A`。不要纳入无关脏改动、投递进度脏改动、误删的 README/SSOT。
+3. `git push origin main`。SSH 失败时不改 origin URL，改推 `https://github.com/Alam-100/my-obsidian.git` 的 `HEAD:main`，然后 `git fetch origin` 更新 origin 引用。
+4. 把 `D:\backup\my-obsidian-mirror` 快进到同一 HEAD：`python qiuzhao/scripts/vault_dual_backup.py --skip-push`，或在镜像里用 HTTPS 快进。
+5. 本轮若改了 work27 的脚本、skill 或日志：同样先 `pull --ff-only`，只提交这些文件，再 `git push origin main`。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 `git fetch origin`。
+6. `vault_dual_backup.py` 内部是 `git add -A`，不能用来代替第 2 步。E: `.git` 损坏时才用它走 D: 镜像同步可读树并 push。禁止把未校验乱码文件推上 GitHub。
 
 ## 禁止
 
@@ -381,7 +383,7 @@ Bases：`秋招/01_看板/秋招投递.base` → 只过滤 `05_投递进度`。
 - **不入库博士硬门槛岗**（硕士不可投）；禁止用「观望」代替剔除
 - **不入库具身智能 / 机器人控制 / VLA / 仿真操作 / 末端执行岗**；已入库的集中到 `_archived_具身智能/`，不占有效条目、不删正文
 - **不要求**用户把裸 URL 改成硬编码口令行格式
-- **禁止**有 vault 改动却跳过 `vault_dual_backup.py`
+- **禁止**收集写入后只 commit 不 push；禁止用 `git add -A` 或 `vault_dual_backup.py` 把无关脏改动一并提交
 
 ## 主攻默认
 

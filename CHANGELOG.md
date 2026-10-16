@@ -1,3 +1,4 @@
+- 2026-10-16: 收集后必须推远程 — 面经/秋招笔记写完先 pull --ff-only，只提交本轮笔记再 push；SSH 失败用 HTTPS 且不改 origin
 - 2026-10-16: 面经搜寻 — 流程中岗补 MySQL/Redis/网络/OS 情景题（度小满、字节、携程、百度）；`fetch_nowcoder_mianshi.py` 默认窗口结束日改为 2026-10-16
 - 2026-10-14: Obsidian 收尾同步 — 投递进度更新/新卡/归档 + 主路径具身卡去重；SSOT/README 误删已恢复；HTTPS push 到 `7d07083`
 - 2026-10-14: 面经搜寻 — 按投递中岗加厚拼多多算法/Agent、顺丰、京东、中兴、携程；`fetch_nowcoder_mianshi.py` 支持 `--queries-file` 与窗口至 10-14
@@ -23,6 +24,11 @@
 # Changelog
 
 ## 2026-10-16
+
+### 收集后必须推远程
+
+- skill / `DEV.md`：收集写入完成后必须推 `origin main`；禁止只 commit、`git add -A`、强推
+- SSH 失败改走 HTTPS（不改 origin），随后 fetch；笔记仓与本轮改过的 work27 都要推
 
 ### 面经搜寻（流程中岗后端情景题）
 
