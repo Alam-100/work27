@@ -1,3 +1,4 @@
+- 2026-10-18: 已交付初创校招 — 月之暗面 3 岗、语核科技 2 岗；脚本 `ingest_startup_campus_20261018.py`；未加入投递表
 - 2026-10-16: 中车株洲所面经 — 投递表「中车-AI开发工程师」无 AI 真帖；近岗 6 题写入 Obsidian；`source_links.json` 登记 3 篇牛客与 1 条社招 JD
 - 2026-10-16: 收集后必须推远程 — 面经/秋招笔记写完先 pull --ff-only，只提交本轮笔记再 push；SSH 失败用 HTTPS 且不改 origin
 - 2026-10-16: 面经搜寻 — 流程中岗补 MySQL/Redis/网络/OS 情景题（度小满、字节、携程、百度）；`fetch_nowcoder_mianshi.py` 默认窗口结束日改为 2026-10-16

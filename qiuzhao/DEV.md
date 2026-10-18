@@ -238,6 +238,15 @@ py -3.12 qiuzhao\scripts\fetch_nowcoder_schedule.py --batch 1203,1206,1210 --upd
 
 输出：`qiuzhao/tmp/nowcoder_filtered.json` + `nowcoder_{batch}.json`。字段含 `公司` / `投递链接` / `批次标签` / `招聘计划` / `网申开始|结束`。微信投递链过滤；白名单 + 关键词筛。列表行须再官网深挖 JD。
 
+## ingest_startup_campus_20261018.py
+
+已交付初创的一次性校招入库（2026-10-18）。公司须同时有至少两轮公开融资、市场验证、已对外交付；岗位过学历门与具身门。不建投递进度。
+
+```powershell
+$env:QIUZHAO_VAULT="E:\obsidian\My_docs"
+py -3.12 qiuzhao\scripts\ingest_startup_campus_20261018.py
+```
+
 ## ingest_bank_campus_20261011.py
 
 银行（央国企）仍开放校招技术/AI 岗一次性入库脚本（2026-10-11）。写入前过 `jd_edu_gate` / `jd_embodied_gate` / `clean_jd`，经 `vault_io` 写岗卡与公司卡；**不**建投递进度。

@@ -185,6 +185,7 @@ description: >-
 4. sma-wiki：`python qiuzhao/scripts/fetch_sma_wiki.py --out sma_wiki.json --diff-vault`（默认互联网+27届秋招；读 `RAW_DATA`；解牛客 jump；优先 `--filter-keywords "Agent,智能体,大模型应用"` + 未入库公司）
 5. 牛客日程：`py -3.12 qiuzhao/scripts/fetch_nowcoder_schedule.py --batch 1203,1206,1210`（`1203`=提前批，`1206/1210`=正式批；API `list-card`）
    - **深挖补刀**：日程卡只有公司入口时，必须再打开 `nowcoder.com/enterprise/{id}?recruitType=1`（校招 tab）搜 Agent；点进 `jobs/detail/{id}` 抽 JD。勿只信官网「飞凡计划」等方向总岗（易漏具体 Agent 岗）
+5c. **已交付初创**：多轮公开融资 + 市场验证 + 已对外交付，才收 Agent/大模型算法/LLM 应用校招。一次性见 `qiuzhao/scripts/ingest_startup_campus_20261018.py`。不满足三条不入库；实习包装、训练/推理 Infra、具身、博士硬门槛、微信墙仍丢。
 5b. **银行池**：方舟/OfferStar/公告线索 → 官网或北森/hotjob 深挖；可宽到 AI 应用/智能投研/大模型应用/金融科技研发（须实质 JD）。一次性批量见 `qiuzhao/scripts/ingest_bank_campus_20261011.py`。Windows 若 `fetch_url` 报 SOCKS/`socksio`，先清空 `HTTP(S)_PROXY`/`ALL_PROXY`。已入库多岗银行只补新开对口技术岗，不重复刷卡；不收柜员/营销；不自动投递表
 6. 西电校园活动：`py -3.12 qiuzhao/scripts/fetch_xidian_events.py --write-vault --update-source-links`
    - 权威源：`job.xidian.edu.cn` 宣讲会 / 招聘会（非公众号周报）
