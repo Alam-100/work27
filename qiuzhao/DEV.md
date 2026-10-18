@@ -19,7 +19,8 @@
 - 环境同时克隆 **work27** 与 **my-obsidian**。只配环境、对话不把 work27 当工作区，技能不会生效；环境里没有 my-obsidian，就写不进 Obsidian 远程。
 - 笔记写入 my-obsidian 里已有的 `秋招/`（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停。
 - 笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
-- 收集完面经/秋招笔记后必须推 `origin main`（先 `pull --ff-only`，只提交本轮笔记，普通 push）。禁止只 commit 不 push，禁止强推。SSH 失败用 HTTPS 且不改 origin URL，随后 `git fetch origin`。本机收尾见下文双重备份。
+- 收集完面经/秋招笔记后必须推 `origin main`（先 `pull --ff-only`，只提交本轮笔记，普通 push）。禁止只 commit 不 push，禁止强推、`--no-verify`、改 git config。SSH 失败用 HTTPS 且不改 origin URL，随后 `git fetch origin`。本机收尾见下文双重备份。
+- work27 改了脚本、skill 或文档并 commit 之后，默认再普通 `git push` 到 `origin`（`main`）。先 `pull --ff-only`，只提交本轮文件。禁止 force push、`--no-verify`、改 git config。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。有冲突就停。
 
 可粘贴到 Cursor User Rules（管所有对话；本仓库 skill 只在工作区能读到 work27 时生效）：
 
@@ -29,6 +30,7 @@
 环境里同时放入 work27 与 my-obsidian。只选环境、对话不把 work27 当工作区，技能不会生效。
 笔记正文写入 my-obsidian 里已有的「秋招/」相对路径，不另起目录，不把 vault 历史库复制进 work 当第二真源。
 work27 只改脚本、source_links、修改日志。收集完面经/秋招笔记后必须直接推 my-obsidian 的 origin main（先 pull --ff-only，只提交本轮笔记），禁止强推。SSH 失败用 HTTPS，不改 origin URL。
+work27 改了脚本、skill 或文档并 commit 之后，必须再普通 git push 到 origin main。禁止 force push、--no-verify、改 git config。SSH 失败用 HTTPS，不改 origin URL。
 ```
 
 ### 启动
@@ -390,7 +392,7 @@ git push origin main
 # D: 镜像快进：python qiuzhao\scripts\vault_dual_backup.py --skip-push
 ```
 
-work27 若本轮改了脚本/skill/日志，同样 `pull --ff-only` 后只提交这些文件，再 `git push origin main`。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。禁止 force push、hard reset、改 git config。有冲突就停。
+work27 改了脚本、skill 或文档：写修改日志 → commit → 普通 `git push origin main`。这是默认收尾，不能只 commit。先 `pull --ff-only`，只提交本轮文件。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。禁止 force push、`--no-verify`、hard reset、改 git config。有冲突就停。
 
 | 路径 | 角色 |
 | --- | --- |
@@ -437,6 +439,6 @@ work27 若本轮改了脚本/skill/日志，同样 `pull --ff-only` 后只提交
 
 1. 更新笔记 `更新于`
 2. 追加 `秋招/修改日志.md` 与仓库 `CHANGELOG.md`
-3. work 仓库 git commit
+3. work 仓库 git commit 后普通 `git push origin`（先 `pull --ff-only`；禁止 force push、`--no-verify`、改 git config）
 4. 用户主文档：`秋招/文件夹与职责说明.md`
 5. 云端主仓库、环境与笔记落点见上文「Cloud Agent：对话仓库与笔记真源」

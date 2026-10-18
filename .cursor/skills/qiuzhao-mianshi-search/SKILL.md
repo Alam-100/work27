@@ -206,6 +206,6 @@ Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidia
 2. 只 `git add` 本轮笔记路径再提交。禁止 `git add -A`。不要纳入无关脏改动、投递进度脏改动、误删的 README/SSOT。
 3. `git push origin main`。SSH 失败时不改 origin URL，改推 `https://github.com/Alam-100/my-obsidian.git` 的 `HEAD:main`，然后 `git fetch origin`。
 4. D 盘镜像快进到同一 HEAD：`python qiuzhao/scripts/vault_dual_backup.py --skip-push`（或镜像内 HTTPS 快进）。
-5. 本轮若改了 work27 的脚本、skill 或日志，work27 同样 pull --ff-only、只提交本轮文件、再普通 push。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。
+5. work27 改了脚本、skill 或文档：写修改日志 → commit → 普通 `git push origin main`。这是默认收尾，不能只 commit。先 `pull --ff-only`，只提交本轮文件。禁止 force push、`--no-verify`、改 git config。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 fetch。有冲突就停。
 6. 不要用 `vault_dual_backup.py` 的整树 `git add -A` 代替第 2 步。E: git 损坏时才用它走 D: 镜像。禁止把未校验乱码推上 GitHub。
 7. **适用范围**：面经入库、情报岗卡、来源日志、口述题答、校园活动等一切 vault 写入（不限本 Skill）。

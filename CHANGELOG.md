@@ -1,3 +1,4 @@
+- 2026-10-18: work27 提交后默认推远程 — 改脚本/skill/文档并 commit 后普通 push origin；禁止 force、--no-verify、改 git config
 - 2026-10-18: 已交付初创校招 — 月之暗面 3 岗、语核科技 2 岗；脚本 `ingest_startup_campus_20261018.py`；未加入投递表
 - 2026-10-16: 中车株洲所面经 — 投递表「中车-AI开发工程师」无 AI 真帖；近岗 6 题写入 Obsidian；`source_links.json` 登记 3 篇牛客与 1 条社招 JD
 - 2026-10-16: 收集后必须推远程 — 面经/秋招笔记写完先 pull --ff-only，只提交本轮笔记再 push；SSH 失败用 HTTPS 且不改 origin
@@ -24,6 +25,13 @@
 - 2026-09-16: 我的秋招 — 投递状态下拉按流程环节动态生成（自定义环节如 ai面 → 待面试-ai面）
 - 2026-09-14: 秋招早报自动化 — 新增 Agent/智能体岗卡 10；华为/商汤/携程核实；西电校园活动刷新；面经百度/商汤/携程 +38
 # Changelog
+
+## 2026-10-18
+
+### work27 提交后默认推远程
+
+- `qiuzhao-assistant`、`qiuzhao-mianshi-search`、`qiuzhao/DEV.md`：改脚本、skill 或文档后的默认收尾是写修改日志 → commit → 普通 `git push origin`
+- 禁止 force push、`--no-verify`、改 git config；SSH 失败走 HTTPS 且不改 origin
 
 ## 2026-10-16
 

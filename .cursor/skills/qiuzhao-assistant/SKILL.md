@@ -41,7 +41,8 @@ description: >-
 - **环境**：虚拟机里同时克隆 **work27** 与 **my-obsidian**。只配环境、对话却不把 work27 当工作区，技能不会生效；只选 work27、环境里没有 my-obsidian，就写不进 Obsidian 远程。
 - **笔记落点**：写入 my-obsidian 克隆里已经存在的 `秋招/` 相对路径（`qiuzhao_root = vault_root / "秋招"`）。禁止另起目录，禁止把 vault 历史库复制进 work 当第二真源。找不到已有 `秋招/` 就停并说明。
 - **分工**：笔记正文以 my-obsidian 为准。work 只更新脚本、`qiuzhao/data/source_links.json`、修改日志。
-- **推送（长期）**：每次收集完面经/秋招笔记都直接推 `origin main`，保持本地与远程同步。先 `pull --ff-only`，只提交本轮笔记，再普通 push。禁止只 commit 不 push，禁止 force push。SSH 失败时用 HTTPS 推送且不改 origin URL，随后 `git fetch origin`。本机收尾见文末「双重备份」。
+- **推送（长期）**：每次收集完面经/秋招笔记都直接推 `origin main`，保持本地与远程同步。先 `pull --ff-only`，只提交本轮笔记，再普通 push。禁止只 commit 不 push，禁止 force push、`--no-verify`、改 git config。SSH 失败时用 HTTPS 推送且不改 origin URL，随后 `git fetch origin`。本机收尾见文末「双重备份」。
+- **work27 推送（长期）**：改了本仓库脚本、skill 或文档并 commit 之后，默认再普通 `git push` 到 `origin`（`main`）。先 `pull --ff-only`，只提交本轮文件。禁止 force push、`--no-verify`、改 git config。SSH 失败时不改 origin URL，改推 `https://github.com/Alam-100/work27.git` 的 `HEAD:main`，随后 `git fetch origin`。有冲突就停并报告。
 
 ## 目录约定（分层）
 
@@ -371,7 +372,7 @@ Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidia
 2. 只 `git add` 本轮笔记路径再提交。禁止 `git add -A`。不要纳入无关脏改动、投递进度脏改动、误删的 README/SSOT。
 3. `git push origin main`。SSH 失败时不改 origin URL，改推 `https://github.com/Alam-100/my-obsidian.git` 的 `HEAD:main`，然后 `git fetch origin` 更新 origin 引用。
 4. 把 `D:\backup\my-obsidian-mirror` 快进到同一 HEAD：`python qiuzhao/scripts/vault_dual_backup.py --skip-push`，或在镜像里用 HTTPS 快进。
-5. 本轮若改了 work27 的脚本、skill 或日志：同样先 `pull --ff-only`，只提交这些文件，再 `git push origin main`。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 `git fetch origin`。
+5. work27 改了脚本、skill 或文档：写修改日志 → commit → 普通 `git push origin main`。这是默认收尾，不能只 commit。先 `pull --ff-only`，只提交本轮文件。禁止 force push、`--no-verify`、改 git config。SSH 失败则推 `https://github.com/Alam-100/work27.git`，不改 origin，随后 `git fetch origin`。有冲突就停。
 6. `vault_dual_backup.py` 内部是 `git add -A`，不能用来代替第 2 步。E: `.git` 损坏时才用它走 D: 镜像同步可读树并 push。禁止把未校验乱码文件推上 GitHub。
 
 ## 禁止
@@ -384,7 +385,7 @@ Obsidian 打开的库是 `E:\obsidian\My_docs`，Git 根是上一级 `E:\obsidia
 - **不入库博士硬门槛岗**（硕士不可投）；禁止用「观望」代替剔除
 - **不入库具身智能 / 机器人控制 / VLA / 仿真操作 / 末端执行岗**；已入库的集中到 `_archived_具身智能/`，不占有效条目、不删正文
 - **不要求**用户把裸 URL 改成硬编码口令行格式
-- **禁止**收集写入后只 commit 不 push；禁止用 `git add -A` 或 `vault_dual_backup.py` 把无关脏改动一并提交
+- **禁止**收集写入后只 commit 不 push；禁止 work27 在改脚本、skill 或文档并 commit 之后停在本地不 push；禁止用 `git add -A` 或 `vault_dual_backup.py` 把无关脏改动一并提交
 
 ## 主攻默认
 
