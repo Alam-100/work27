@@ -1,3 +1,4 @@
+- 2026-10-22: 华为通软面经 — vault 新建通软题库/08_；加厚 Agent；手撕与 `source_links.json` 更新；my-obsidian `65ac450` 已 push
 - 2026-10-18: work27 提交后默认推远程 — 改脚本/skill/文档并 commit 后普通 push origin；禁止 force、--no-verify、改 git config
 - 2026-10-18: 已交付初创校招 — 月之暗面 3 岗、语核科技 2 岗；脚本 `ingest_startup_campus_20261018.py`；未加入投递表
 - 2026-10-16: 中车株洲所面经 — 投递表「中车-AI开发工程师」无 AI 真帖；近岗 6 题写入 Obsidian；`source_links.json` 登记 3 篇牛客与 1 条社招 JD
