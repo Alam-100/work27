@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16",
+  "updated": "2026-10-22",
   "links": [
     {
       "url": "https://campus.sma-wiki.cn/campus/campus_recruit.html?channel=zpdt",
@@ -1051,6 +1051,116 @@
       "note": "株洲所AI应用高级工程师，非面经",
       "最近检查": "2026-10-16",
       "核实于": "2026-10-16"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/7ce4f8e01d4e41878b834f28da8bead9",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "华为通软西安线下 2026-10-15；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/193a10305c9f4232befd5a79d1b7cec3",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "华为通软上海线下 2025-10-21；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/discuss/800368405151801344",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "华为通软线下面 2025-09-24；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/37553f554db048309a621761e44014f0",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "华为通软25秋招；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/240d2ebcfa3d4758b613fa31f1dff2e5",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "无线产品线通软线下 2025-10-23；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/a24a939d92cd4df7bd4c769017b7b709",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "终端云通用软件业务面+主管面；含Agent追问；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/2781ddb7e1ff47e7b93656880c58eb42",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "ICT通用软开Java线下三轮；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/b49d06bb5cba4e05b1824845517a82df",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "南研所ICT通软；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/411ba8c29c6f48279d58c5da94de04df",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "华为AI应用工程师一面；Agent/RAG；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
+    },
+    {
+      "url": "https://www.nowcoder.com/feed/main/detail/5fee66dc126e4e17a1a4d73fd879d248",
+      "type": "面经",
+      "batch": "2026-10-22",
+      "platform": "牛客",
+      "status": "有效",
+      "last_checked": "2026-10-22",
+      "note": "通用软开面经；全文已读",
+      "最近检查": "2026-10-22",
+      "核实于": "2026-10-22"
     }
   ]
 }
